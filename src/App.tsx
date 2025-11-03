@@ -1,8 +1,8 @@
 import { useState } from 'react'
+/* 
+const birthDate = new Date('2006-09-01') */
 
-const birthDate = new Date('2006-09-01')
-
-function getAge() {
+/* function getAge() {
   const today = new Date()
   let age = today.getFullYear() - birthDate.getFullYear()
   const monthDiff = today.getMonth() - birthDate.getMonth()
@@ -13,7 +13,7 @@ function getAge() {
 
   return age
 }
-
+ */
 const navItems = [
   { id: 'inicio', label: 'Início' },
   { id: 'sobre', label: 'Sobre a Avantis' },
@@ -160,9 +160,7 @@ const contactMethods = [
     type: 'whatsapp',
     title: 'WhatsApp',
     value: '+55 (67) 9 8408-4389',
-    href: 'https://wa.me/5567984084389',
-    icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z',
-    tone: 'green',
+  
   },
   {
     type: 'linkedin',
@@ -227,7 +225,7 @@ const socials = [
   { label: 'E-mail', url: 'mailto:marciliortizz@gmail.com' },
 ]
 
-function Logo() {
+/* function Logo() {
   return (
     <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl bg-white/10 shadow-xl">
       <img
@@ -239,10 +237,9 @@ function Logo() {
     </div>
   )
 }
-
+ */
 export default function App() {
   const [isNavOpen, setIsNavOpen] = useState(false)
-  const age = getAge()
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-slate-950 text-slate-100">
