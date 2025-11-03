@@ -348,8 +348,8 @@ export default function App() {
               id="inicio"
               className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-[0_0_80px_-30px_rgba(168,85,247,0.65)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-10 lg:p-14"
             >
-              <div className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-gradient-to-br from-indigo-500/60 via-purple-500/40 to-transparent blur-3xl" />
-              <div className="absolute -left-28 bottom-0 h-64 w-64 rounded-full bg-gradient-to-br from-sky-500/40 to-transparent blur-3xl" />
+              <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-gradient-to-br from-indigo-500/60 via-purple-500/40 to-transparent blur-3xl" />
+              <div className="pointer-events-none absolute -left-28 bottom-0 h-64 w-64 rounded-full bg-gradient-to-br from-sky-500/40 to-transparent blur-3xl" />
               <div className="relative grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:items-center">
                 <div className="space-y-8">
                   <p className="text-xs font-semibold uppercase tracking-[0.5em] text-fuchsia-200/70">Avantis Studio • Produto &amp; Tecnologia</p>
@@ -407,7 +407,7 @@ export default function App() {
             </section>
 
             <section id="sobre" className="relative rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_0_80px_-40px_rgba(125,211,252,0.65)] backdrop-blur-2xl sm:rounded-[2.5rem] sm:p-10">
-              <div className="absolute -top-20 right-10 h-40 w-40 rounded-full bg-sky-400/30 blur-3xl" />
+              <div className="pointer-events-none absolute -top-20 right-10 h-40 w-40 rounded-full bg-sky-400/30 blur-3xl" />
               <div className="relative grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
                 <div className="space-y-6 text-lg leading-relaxed text-slate-200/80">
                   <div className="flex items-center gap-3">
@@ -493,7 +493,7 @@ export default function App() {
                       key={project.name}
                       className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl sm:p-8"
                     >
-                      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white/0 via-white/5 to-white/10 opacity-0 transition group-hover:opacity-100" />
+                      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-white/0 via-white/5 to-white/10 opacity-0 transition group-hover:opacity-100" />
                       <div className="flex flex-wrap items-center justify-between gap-4">
                         <div className="space-y-3">
                           {project.status ? (
@@ -559,7 +559,7 @@ export default function App() {
                     key={testimonial.author}
                     className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl sm:p-8"
                   >
-                    <div className="absolute -top-10 right-16 h-32 w-32 rounded-full bg-white/10 blur-3xl" aria-hidden />
+                    <div className="pointer-events-none absolute -top-10 right-16 h-32 w-32 rounded-full bg-white/10 blur-3xl" aria-hidden />
                     <p className="text-sm leading-relaxed text-slate-200/80">“{testimonial.quote}”</p>
                     <footer className="mt-6 text-sm font-semibold text-white">
                       {testimonial.author}
@@ -576,7 +576,7 @@ export default function App() {
               id="contato"
               className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900/60 via-slate-900/40 to-slate-900/20 p-6 shadow-[0_0_80px_-40px_rgba(147,197,253,0.65)] backdrop-blur-2xl sm:rounded-[2.5rem] sm:p-10"
             >
-              <div className="absolute -bottom-20 right-0 h-64 w-64 rounded-full bg-sky-500/20 blur-[160px]" />
+              <div className="pointer-events-none absolute -bottom-20 right-0 h-64 w-64 rounded-full bg-sky-500/20 blur-[160px]" />
               <div className="relative grid gap-12 lg:grid-cols-[1.3fr_0.7fr]">
                 <div className="space-y-8">
                   <div className="space-y-4">
