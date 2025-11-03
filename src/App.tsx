@@ -242,7 +242,7 @@ export default function App() {
   const [isNavOpen, setIsNavOpen] = useState(false)
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-slate-950 text-slate-100">
+    <div className="relative min-h-dvh overflow-x-hidden bg-slate-950 text-slate-100">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-[-10%] top-[-10%] h-[28rem] w-[28rem] rounded-full bg-fuchsia-500/30 blur-[160px]" />
         <div className="absolute right-[-20%] top-[20%] h-[30rem] w-[30rem] rounded-full bg-indigo-500/30 blur-[180px]" />
@@ -346,7 +346,7 @@ export default function App() {
           <main className="relative z-10 mx-auto w-full max-w-6xl space-y-16 px-4 pb-16 pt-12 sm:space-y-24 sm:px-8 lg:max-w-7xl lg:space-y-28 lg:px-12 xl:px-16">
             <section
               id="inicio"
-              className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-[0_0_80px_-30px_rgba(168,85,247,0.65)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-10 lg:p-14"
+              className="relative overflow-visible md:overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-[0_0_80px_-30px_rgba(168,85,247,0.65)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-10 lg:p-14"
             >
               <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-gradient-to-br from-indigo-500/60 via-purple-500/40 to-transparent blur-3xl" />
               <div className="pointer-events-none absolute -left-28 bottom-0 h-64 w-64 rounded-full bg-gradient-to-br from-sky-500/40 to-transparent blur-3xl" />
@@ -574,7 +574,7 @@ export default function App() {
 
             <section
               id="contato"
-              className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900/60 via-slate-900/40 to-slate-900/20 p-6 shadow-[0_0_80px_-40px_rgba(147,197,253,0.65)] backdrop-blur-2xl sm:rounded-[2.5rem] sm:p-10"
+              className="relative overflow-visible md:overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900/60 via-slate-900/40 to-slate-900/20 p-6 shadow-[0_0_80px_-40px_rgba(147,197,253,0.65)] backdrop-blur-2xl sm:rounded-[2.5rem] sm:p-10"
             >
               <div className="pointer-events-none absolute -bottom-20 right-0 h-64 w-64 rounded-full bg-sky-500/20 blur-[160px]" />
               <div className="relative grid gap-12 lg:grid-cols-[1.3fr_0.7fr]">
@@ -590,25 +590,33 @@ export default function App() {
                   </div>
 
                   <div className="grid gap-4 sm:grid-cols-2">
-                    {contactMethods.map((contact) => (
-                      <a
-                        key={contact.type}
-                        href={contact.href}
-                        target={contact.type === 'email' ? undefined : '_blank'}
-                        rel={contact.type === 'email' ? undefined : 'noopener noreferrer'}
-                        className="group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 p-4 transition hover:border-white/20 hover:bg-white/10 sm:p-5"
-                      >
-                        <div className={`mb-4 inline-flex rounded-lg border px-3 py-2 text-xs font-semibold uppercase tracking-[0.35em] ${contactToneStyles[contact.tone as keyof typeof contactToneStyles]}`}>
-                          {contact.title}
-                        </div>
-                        <div className="flex items-center gap-3 text-sm text-slate-200">
-                          <svg className="h-5 w-5 text-slate-200/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={contact.icon} />
-                          </svg>
-                          <span className="font-medium group-hover:text-white transition">{contact.value}</span>
-                        </div>
-                      </a>
-                    ))}
+                    {contactMethods.map((contact) => {
+                      const toneClass = contact.tone
+                        ? contactToneStyles[contact.tone as keyof typeof contactToneStyles]
+                        : 'border-white/10 bg-white/10 text-slate-200'
+
+                      return (
+                        <a
+                          key={contact.type}
+                          href={contact.href}
+                          target={contact.type === 'email' ? undefined : '_blank'}
+                          rel={contact.type === 'email' ? undefined : 'noopener noreferrer'}
+                          className="group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 p-4 transition hover:border-white/20 hover:bg-white/10 sm:p-5"
+                        >
+                          <div className={`mb-4 inline-flex rounded-lg border px-3 py-2 text-xs font-semibold uppercase tracking-[0.35em] ${toneClass}`}>
+                            {contact.title}
+                          </div>
+                          <div className="flex items-center gap-3 text-sm text-slate-200">
+                            {contact.icon ? (
+                              <svg className="h-5 w-5 text-slate-200/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={contact.icon} />
+                              </svg>
+                            ) : null}
+                            <span className="font-medium group-hover:text-white transition">{contact.value}</span>
+                          </div>
+                        </a>
+                      )
+                    })}
                   </div>
 
                   <div className="space-y-5 rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
