@@ -250,7 +250,7 @@ export default function App() {
         <div className="absolute bottom-[10%] right-[5%] h-[18rem] w-[18rem] rounded-full bg-rose-500/20 blur-[140px]" />
       </div>
 
-      <div className="relative flex">
+      <div className="relative flex flex-col lg:flex-row">
         <aside className="hidden border-r border-white/10 bg-white/5 px-7 py-10 shadow-[0_0_60px_-20px_rgba(99,102,241,0.6)] backdrop-blur-2xl lg:fixed lg:inset-y-0 lg:left-0 lg:flex lg:h-screen lg:w-64 lg:overflow-y-auto xl:w-72 xl:px-9">
           <div className="flex flex-1 flex-col h-full">
             <div>
@@ -286,8 +286,8 @@ export default function App() {
           </div>
         </aside>
 
-        <div className="flex-1 lg:ml-64 lg:pl-8 xl:ml-72 xl:pl-12">
-          <header className="sticky top-0 z-50 flex items-center justify-between border-b border-white/10 bg-slate-950/70 px-6 py-4 backdrop-blur-xl lg:hidden">
+        <div className="flex-1 w-full lg:ml-64 lg:pl-8 xl:ml-72 xl:pl-12">
+          <header className="sticky top-0 z-50 flex items-center justify-between border-b border-white/10 bg-slate-950/70 px-4 py-3 backdrop-blur-xl sm:px-6 sm:py-4 lg:hidden">
             <div className="flex items-center gap-3">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.4em] text-fuchsia-200/80">Avantis Studio</p>
@@ -309,7 +309,7 @@ export default function App() {
 
           {isNavOpen ? (
             <div className="fixed inset-0 z-40 bg-slate-950/80 backdrop-blur-lg lg:hidden">
-              <nav className="absolute right-4 top-4 w-72 rounded-[2rem] border border-white/10 bg-slate-900/70 p-6 shadow-2xl backdrop-blur-xl">
+              <nav className="absolute inset-x-4 top-4 max-w-sm rounded-[2rem] border border-white/10 bg-slate-900/70 p-6 shadow-2xl backdrop-blur-xl sm:right-6 sm:inset-auto sm:w-80">
                 <div className="mb-6 flex items-center justify-between">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.4em] text-fuchsia-200/80">Avantis Studio</p>
@@ -343,17 +343,17 @@ export default function App() {
             </div>
           ) : null}
 
-          <main className="relative z-10 space-y-24 px-6 pb-16 pt-12 sm:px-10 lg:pr-12 xl:px-16">
+          <main className="relative z-10 mx-auto w-full max-w-6xl space-y-16 px-4 pb-16 pt-12 sm:space-y-24 sm:px-8 lg:max-w-7xl lg:space-y-28 lg:px-12 xl:px-16">
             <section
               id="inicio"
-              className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/10 p-10 shadow-[0_0_80px_-30px_rgba(168,85,247,0.65)] backdrop-blur-3xl sm:p-14"
+              className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-[0_0_80px_-30px_rgba(168,85,247,0.65)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-10 lg:p-14"
             >
               <div className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-gradient-to-br from-indigo-500/60 via-purple-500/40 to-transparent blur-3xl" />
               <div className="absolute -left-28 bottom-0 h-64 w-64 rounded-full bg-gradient-to-br from-sky-500/40 to-transparent blur-3xl" />
               <div className="relative grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:items-center">
                 <div className="space-y-8">
                   <p className="text-xs font-semibold uppercase tracking-[0.5em] text-fuchsia-200/70">Avantis Studio • Produto &amp; Tecnologia</p>
-                  <h1 className="text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
+                  <h1 className="text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl xl:text-6xl">
                     Construímos produtos digitais com estratégia, design e engenharia de alta qualidade.
                   </h1>
                   <p className="text-lg leading-relaxed text-slate-200/80">
@@ -406,7 +406,7 @@ export default function App() {
               </div>
             </section>
 
-            <section id="sobre" className="relative rounded-[2.5rem] border border-white/10 bg-white/5 p-10 shadow-[0_0_80px_-40px_rgba(125,211,252,0.65)] backdrop-blur-2xl">
+            <section id="sobre" className="relative rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_0_80px_-40px_rgba(125,211,252,0.65)] backdrop-blur-2xl sm:rounded-[2.5rem] sm:p-10">
               <div className="absolute -top-20 right-10 h-40 w-40 rounded-full bg-sky-400/30 blur-3xl" />
               <div className="relative grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
                 <div className="space-y-6 text-lg leading-relaxed text-slate-200/80">
@@ -444,16 +444,16 @@ export default function App() {
               </div>
             </section>
 
-            <section id="especialidades" className="space-y-10 rounded-[2.5rem] border border-white/10 bg-white/5 p-10 shadow-[0_0_80px_-40px_rgba(244,114,182,0.6)] backdrop-blur-2xl">
+            <section id="especialidades" className="space-y-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_0_80px_-40px_rgba(244,114,182,0.6)] backdrop-blur-2xl sm:space-y-10 sm:rounded-[2.5rem] sm:p-10">
               <div className="flex items-center gap-3">
                 <span className="h-1.5 w-10 rounded-full bg-gradient-to-r from-rose-500 via-fuchsia-500 to-indigo-500" />
                 <p className="text-xs font-semibold uppercase tracking-[0.45em] text-slate-200/70">Skills &amp; Stack</p>
               </div>
-              <div className="grid gap-8 lg:grid-cols-3">
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
                 {specialties.map((item) => (
                   <article
                     key={item.title}
-                    className="group relative h-full overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
+                    className="group relative h-full overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl sm:p-8"
                   >
                     <div className="absolute inset-x-0 top-0 h-1 rounded-full bg-gradient-to-r from-fuchsia-500 via-purple-500 to-sky-500 opacity-60" />
                     <div className="absolute inset-0 -z-10 opacity-0 transition group-hover:opacity-100">
@@ -474,7 +474,7 @@ export default function App() {
               </div>
             </section>
 
-            <section id="projetos" className="space-y-10 rounded-[2.5rem] border border-white/10 bg-white/5 p-10 shadow-[0_0_80px_-40px_rgba(99,102,241,0.6)] backdrop-blur-2xl">
+            <section id="projetos" className="space-y-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_0_80px_-40px_rgba(99,102,241,0.6)] backdrop-blur-2xl sm:space-y-10 sm:rounded-[2.5rem] sm:p-10">
               <div className="flex items-center gap-3">
                 <span className="h-1.5 w-10 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-fuchsia-500" />
                 <p className="text-xs font-semibold uppercase tracking-[0.45em] text-slate-200/70">Projetos</p>
@@ -491,7 +491,7 @@ export default function App() {
                   return (
                     <article
                       key={project.name}
-                      className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
+                      className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl sm:p-8"
                     >
                       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white/0 via-white/5 to-white/10 opacity-0 transition group-hover:opacity-100" />
                       <div className="flex flex-wrap items-center justify-between gap-4">
@@ -532,14 +532,14 @@ export default function App() {
               </div>
             </section>
 
-            <section id="experiencia" className="space-y-12 rounded-[2.5rem] border border-white/10 bg-white/5 p-10 shadow-[0_0_80px_-40px_rgba(14,165,233,0.6)] backdrop-blur-2xl">
+            <section id="experiencia" className="space-y-10 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_0_80px_-40px_rgba(14,165,233,0.6)] backdrop-blur-2xl sm:space-y-12 sm:rounded-[2.5rem] sm:p-10">
               <div className="flex items-center gap-3">
                 <span className="h-1.5 w-10 rounded-full bg-gradient-to-r from-sky-500 via-teal-400 to-indigo-500" />
                 <p className="text-xs font-semibold uppercase tracking-[0.45em] text-slate-200/70">Experiência</p>
               </div>
               <div className="grid gap-6 md:grid-cols-2">
                 {experienceTimeline.map((item) => (
-                  <article key={item.period} className="rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                  <article key={item.period} className="rounded-[2rem] border border-white/10 bg-white/5 p-5 backdrop-blur-xl sm:p-6">
                     <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-200/60">{item.period}</p>
                     <h3 className="mt-3 text-lg font-bold text-white">{item.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-slate-200/80">{item.description}</p>
@@ -548,7 +548,7 @@ export default function App() {
               </div>
             </section>
 
-            <section id="resultados" className="space-y-10 rounded-[2.5rem] border border-white/10 bg-white/5 p-10 shadow-[0_0_80px_-40px_rgba(59,130,246,0.6)] backdrop-blur-2xl">
+            <section id="resultados" className="space-y-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_0_80px_-40px_rgba(59,130,246,0.6)] backdrop-blur-2xl sm:space-y-10 sm:rounded-[2.5rem] sm:p-10">
               <div className="flex items-center gap-3">
                 <span className="h-1.5 w-10 rounded-full bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500" />
                 <p className="text-xs font-semibold uppercase tracking-[0.45em] text-slate-200/70">Resultados</p>
@@ -557,7 +557,7 @@ export default function App() {
                 {results.map((testimonial) => (
                   <blockquote
                     key={testimonial.author}
-                    className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
+                    className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl sm:p-8"
                   >
                     <div className="absolute -top-10 right-16 h-32 w-32 rounded-full bg-white/10 blur-3xl" aria-hidden />
                     <p className="text-sm leading-relaxed text-slate-200/80">“{testimonial.quote}”</p>
@@ -574,7 +574,7 @@ export default function App() {
 
             <section
               id="contato"
-              className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-slate-900/60 via-slate-900/40 to-slate-900/20 p-10 shadow-[0_0_80px_-40px_rgba(147,197,253,0.65)] backdrop-blur-2xl"
+              className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900/60 via-slate-900/40 to-slate-900/20 p-6 shadow-[0_0_80px_-40px_rgba(147,197,253,0.65)] backdrop-blur-2xl sm:rounded-[2.5rem] sm:p-10"
             >
               <div className="absolute -bottom-20 right-0 h-64 w-64 rounded-full bg-sky-500/20 blur-[160px]" />
               <div className="relative grid gap-12 lg:grid-cols-[1.3fr_0.7fr]">
@@ -596,7 +596,7 @@ export default function App() {
                         href={contact.href}
                         target={contact.type === 'email' ? undefined : '_blank'}
                         rel={contact.type === 'email' ? undefined : 'noopener noreferrer'}
-                        className="group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 p-5 transition hover:border-white/20 hover:bg-white/10"
+                        className="group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 p-4 transition hover:border-white/20 hover:bg-white/10 sm:p-5"
                       >
                         <div className={`mb-4 inline-flex rounded-lg border px-3 py-2 text-xs font-semibold uppercase tracking-[0.35em] ${contactToneStyles[contact.tone as keyof typeof contactToneStyles]}`}>
                           {contact.title}
@@ -645,7 +645,7 @@ export default function App() {
                     ))}
                   </div>
                 </div>
-                <div className="space-y-6 rounded-[2rem] border border-white/10 bg-white/5 p-8 text-sm text-slate-200/80 backdrop-blur-xl">
+                <div className="space-y-6 rounded-[2rem] border border-white/10 bg-white/5 p-6 text-sm text-slate-200/80 backdrop-blur-xl sm:p-8">
                   <div className="space-y-4">
                     <p className="text-xs font-semibold uppercase tracking-[0.45em] text-slate-200/60">Informações rápidas</p>
                     <div className="grid gap-3">
