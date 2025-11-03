@@ -250,7 +250,7 @@ export default function App() {
         <div className="absolute bottom-[10%] right-[5%] h-[18rem] w-[18rem] rounded-full bg-rose-500/20 blur-[140px]" />
       </div>
 
-      <div className="relative flex flex-col lg:flex-row">
+      <div className="relative lg:flex lg:flex-row">
         <aside className="hidden border-r border-white/10 bg-white/5 px-7 py-10 shadow-[0_0_60px_-20px_rgba(99,102,241,0.6)] backdrop-blur-2xl lg:fixed lg:inset-y-0 lg:left-0 lg:flex lg:h-screen lg:w-64 lg:overflow-y-auto xl:w-72 xl:px-9">
           <div className="flex flex-1 flex-col h-full">
             <div>
@@ -286,7 +286,7 @@ export default function App() {
           </div>
         </aside>
 
-        <div className="flex-1 w-full lg:ml-64 lg:pl-8 xl:ml-72 xl:pl-12">
+        <div className="w-full lg:flex-1 lg:ml-64 lg:pl-8 xl:ml-72 xl:pl-12">
           <header className="sticky top-0 z-50 flex items-center justify-between border-b border-white/10 bg-slate-950/70 px-4 py-3 backdrop-blur-xl sm:px-6 sm:py-4 lg:hidden">
             <div className="flex items-center gap-3">
               <div>
