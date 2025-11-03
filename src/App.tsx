@@ -346,7 +346,8 @@ export default function App() {
           <main className="relative z-10 mx-auto w-full max-w-6xl space-y-16 px-4 pb-16 pt-12 sm:space-y-24 sm:px-8 lg:max-w-7xl lg:space-y-28 lg:px-12 xl:px-16">
             <section
               id="inicio"
-              className="relative overflow-visible md:overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-[0_0_80px_-30px_rgba(168,85,247,0.65)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-10 lg:p-14"
+              data-clip="false"
+              className="relative rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-[0_0_80px_-30px_rgba(168,85,247,0.65)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-10 lg:p-14"
             >
               <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-gradient-to-br from-indigo-500/60 via-purple-500/40 to-transparent blur-3xl" />
               <div className="pointer-events-none absolute -left-28 bottom-0 h-64 w-64 rounded-full bg-gradient-to-br from-sky-500/40 to-transparent blur-3xl" />
@@ -574,7 +575,8 @@ export default function App() {
 
             <section
               id="contato"
-              className="relative overflow-visible md:overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900/60 via-slate-900/40 to-slate-900/20 p-6 shadow-[0_0_80px_-40px_rgba(147,197,253,0.65)] backdrop-blur-2xl sm:rounded-[2.5rem] sm:p-10"
+              data-clip="false"
+              className="relative rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900/60 via-slate-900/40 to-slate-900/20 p-6 shadow-[0_0_80px_-40px_rgba(147,197,253,0.65)] backdrop-blur-2xl sm:rounded-[2.5rem] sm:p-10"
             >
               <div className="pointer-events-none absolute -bottom-20 right-0 h-64 w-64 rounded-full bg-sky-500/20 blur-[160px]" />
               <div className="relative grid gap-12 lg:grid-cols-[1.3fr_0.7fr]">
