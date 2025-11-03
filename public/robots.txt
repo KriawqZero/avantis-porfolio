@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://marcilio-portfolio.vercel.app/sitemap.xml
+Sitemap: https://avantis.studio/sitemap.xml
 
 # Crawl-delay para evitar sobrecarga
 Crawl-delay: 1
