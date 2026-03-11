@@ -33,11 +33,11 @@ export default function Navbar() {
       >
         <div className="mx-auto flex max-w-5xl items-center justify-between px-5 sm:px-8">
           <a href="#" className="flex items-center gap-2.5 group">
-            <img
+            {/* <img
               src="/logo-simple.png"
               alt="Avantis Studio"
               className="h-7 w-auto transition-transform duration-300 group-hover:scale-105"
-            />
+            /> */}
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-fuchsia-200/80 hidden sm:block">
               Avantis Studio
             </span>
