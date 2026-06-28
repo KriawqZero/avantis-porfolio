@@ -1,0 +1,75 @@
+import { useState } from 'react'
+
+export default function Faq() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const faqs = [
+    {
+      question: 'Desenvolvimento sob medida não é muito caro?',
+      answer: 'Entendemos que pequenos e médios negócios precisam de soluções acessíveis. Por isso, cobramos apenas pelo projeto desenvolvido, focando no que gera valor real, sem vender módulos inúteis.'
+    },
+    {
+      question: 'Vou ficar dependente da Avantis?',
+      answer: 'Não. O software construído é seu. Entregamos a solução para você e você decide se quer manter um contrato de evolução e hospedagem conosco ou assumir a operação internamente no futuro.'
+    },
+    {
+      question: 'Demora muito para ficar pronto?',
+      answer: 'Não existe um prazo padrão, pois cada projeto possui escopo diferente. Mas nosso objetivo é sempre entregar uma primeira versão em poucas semanas, para que você já comece a ver os ganhos de tempo.'
+    },
+    {
+      question: 'Eu não entendo muito de tecnologia, vou conseguir usar?',
+      answer: 'Com certeza. Desenhamos a interface da aplicação para ser extremamente fácil e intuitiva para a sua equipe usar no dia a dia, muito mais fácil do que sistemas genéricos cheios de opções que você não usa.'
+    }
+  ]
+
+  return (
+    <section className="relative px-5 sm:px-12 py-32 bg-[#050511] border-t border-white/5">
+      <div className="mx-auto max-w-4xl">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+          <div className="lg:w-1/3">
+            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-white mb-6">
+              Perguntas Frequentes
+            </h2>
+            <p className="text-lg text-slate-400 font-light">
+              Tudo o que você precisa saber antes de iniciarmos nossa primeira conversa.
+            </p>
+          </div>
+
+          <div className="lg:w-2/3 border-t border-white/10">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="border-b border-white/10 overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  className="w-full py-8 text-left flex items-start justify-between gap-8 focus:outline-none group"
+                >
+                  <span className="text-lg sm:text-xl font-light text-slate-200 group-hover:text-white transition-colors">{faq.question}</span>
+                  <div className="mt-1 flex-shrink-0">
+                    <svg
+                      className={`w-5 h-5 text-slate-500 transform transition-transform duration-500 ${openIndex === index ? 'rotate-180' : ''}`}
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </button>
+                
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    openIndex === index ? 'max-h-96 opacity-100 mb-8' : 'max-h-0 opacity-0 mb-0'
+                  }`}
+                >
+                  <p className="text-base text-slate-400 font-light leading-relaxed pr-8">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

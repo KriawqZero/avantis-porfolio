@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useLanguage } from '../i18n/LanguageContext'
 
 export default function Navbar() {
-  const { locale, setLocale, t } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -14,8 +12,8 @@ export default function Navbar() {
   }, [])
 
   const links = [
-    { href: '#servicos', label: t.nav.services },
-    { href: '#contato', label: t.nav.contact },
+    { href: '#solucoes', label: 'Soluções' },
+    { href: '#contato', label: 'Contato' },
   ]
 
   return (
@@ -33,12 +31,7 @@ export default function Navbar() {
       >
         <div className="mx-auto flex max-w-5xl items-center justify-between px-5 sm:px-8">
           <a href="#" className="flex items-center gap-2.5 group">
-            {/* <img
-              src="/logo-simple.png"
-              alt="Avantis Studio"
-              className="h-7 w-auto transition-transform duration-300 group-hover:scale-105"
-            /> */}
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-fuchsia-200/80 hidden sm:block">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-fuchsia-200/80 block">
               Avantis Studio
             </span>
           </a>
@@ -53,28 +46,6 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <div className="ml-3 flex items-center rounded-full border border-white/10 bg-white/5 p-0.5">
-              <button
-                onClick={() => setLocale('pt')}
-                className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${
-                  locale === 'pt'
-                    ? 'bg-gradient-to-r from-fuchsia-500 to-indigo-500 text-white'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                PT
-              </button>
-              <button
-                onClick={() => setLocale('en')}
-                className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${
-                  locale === 'en'
-                    ? 'bg-gradient-to-r from-fuchsia-500 to-indigo-500 text-white'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                EN
-              </button>
-            </div>
           </div>
 
           <button
@@ -132,28 +103,6 @@ export default function Navbar() {
                   </a>
                 ))}
               </div>
-              <div className="mt-4 flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-0.5">
-                <button
-                  onClick={() => { setLocale('pt'); setMobileOpen(false) }}
-                  className={`flex-1 px-3 py-2 rounded-full text-xs font-medium transition-all ${
-                    locale === 'pt'
-                      ? 'bg-gradient-to-r from-fuchsia-500 to-indigo-500 text-white'
-                      : 'text-slate-400'
-                  }`}
-                >
-                  Português
-                </button>
-                <button
-                  onClick={() => { setLocale('en'); setMobileOpen(false) }}
-                  className={`flex-1 px-3 py-2 rounded-full text-xs font-medium transition-all ${
-                    locale === 'en'
-                      ? 'bg-gradient-to-r from-fuchsia-500 to-indigo-500 text-white'
-                      : 'text-slate-400'
-                  }`}
-                >
-                  English
-                </button>
-              </div>
             </motion.div>
           </motion.div>
         )}
@@ -161,3 +110,4 @@ export default function Navbar() {
     </>
   )
 }
+
