@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[100dvh] flex flex-col justify-center px-5 sm:px-12 pt-28 pb-16 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-center px-5 sm:px-12 pt-28 pb-16 overflow-hidden">
       {/* Background Orgânico (Sede da Empresa) */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10">
         <div className="absolute inset-0 bg-[#050511]" />

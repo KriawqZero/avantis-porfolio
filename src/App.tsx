@@ -10,7 +10,7 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="relative min-h-dvh overflow-x-hidden bg-slate-950 text-slate-100">
+    <div className="relative min-h-screen w-full bg-slate-950 text-slate-100 flex flex-col">
       <Navbar />
       <Hero />
       <Problem />
