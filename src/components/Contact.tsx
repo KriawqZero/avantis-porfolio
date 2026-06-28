@@ -23,7 +23,7 @@ export default function Contact() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
             <a
-              href="https://wa.me/5567999999999"
+              href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER || '5567999999999'}`}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center gap-4 bg-gradient-to-r from-fuchsia-500 via-purple-500 to-indigo-500 px-10 py-5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 w-full sm:w-auto justify-center shadow-[0_0_40px_-10px_rgba(168,85,247,0.4)]"
@@ -34,7 +34,7 @@ export default function Contact() {
             </a>
             
             <a
-              href="mailto:marciliortizz@gmail.com"
+              href={`mailto:${import.meta.env.VITE_CONTACT_EMAIL || 'contato@empresa.com'}`}
               className="text-sm font-medium text-slate-400 hover:text-white transition-colors"
             >
               Ou envie um e-mail corporativo

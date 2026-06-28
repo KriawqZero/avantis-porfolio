@@ -38,7 +38,7 @@ export default function Hero() {
             transition={{ duration: 0.7 }}
             className="text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200/80 mb-8 sm:mb-12 border-l border-fuchsia-500/50 pl-4"
           >
-            Avantis Studio
+            {import.meta.env.VITE_COMPANY_NAME || 'Avantis Studio'}
           </motion.p>
 
           <motion.h1

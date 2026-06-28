@@ -52,7 +52,8 @@ export default function Diagnostic() {
     message += "Podemos agendar um bate-papo de 15 minutos?"
     
     const encoded = encodeURIComponent(message)
-    return `https://wa.me/5567999999999?text=${encoded}`
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '5567999999999'
+    return `https://wa.me/${whatsappNumber}?text=${encoded}`
   }
 
   return (
