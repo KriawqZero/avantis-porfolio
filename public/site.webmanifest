@@ -1,13 +1,17 @@
 {
-  "name": "Marcilio Ortiz Portfolio - Desenvolvedor Full Stack",
-  "short_name": "Marcilio Portfolio",
-  "description": "Portfolio de Marcilio Ortiz (Kriawq), Desenvolvedor Full Stack especialista em NestJS, React e Next.js",
+  "name": "Avantis Studio",
+  "short_name": "Avantis Studio",
+  "description": "Avantis Studio - Software Sob Medida e Desenvolvimento Web",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#111827",
   "theme_color": "#6366f1",
   "orientation": "portrait-primary",
-  "categories": ["portfolio", "developer", "technology"],
+  "categories": [
+    "portfolio",
+    "developer",
+    "technology"
+  ],
   "lang": "pt-BR",
   "scope": "/",
   "icons": [
@@ -18,7 +22,7 @@
       "purpose": "any maskable"
     },
     {
-      "src": "/android-chrome-512x512.png", 
+      "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -29,4 +33,4 @@
       "type": "image/png"
     }
   ]
-} 
+}
