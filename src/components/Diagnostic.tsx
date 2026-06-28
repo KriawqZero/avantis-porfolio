@@ -71,7 +71,7 @@ export default function Diagnostic() {
           {/* Subtle line indicator */}
           <div className="absolute -left-5 top-0 h-full w-[1px] bg-white/5 hidden sm:block">
             <div 
-              className="w-full bg-white transition-all duration-700 ease-out"
+              className="w-full bg-gradient-to-b from-fuchsia-500 to-indigo-500 transition-all duration-700 ease-out shadow-[0_0_15px_rgba(168,85,247,0.5)]"
               style={{ height: `${(currentStep / questions.length) * 100}%` }}
             />
           </div>
@@ -87,7 +87,7 @@ export default function Diagnostic() {
                 className="w-full"
               >
                 <div className="mb-8">
-                  <span className="text-xs font-semibold tracking-[0.2em] text-slate-500 uppercase">
+                  <span className="text-xs font-semibold tracking-[0.2em] text-fuchsia-400 uppercase">
                     0{currentStep + 1} / 0{questions.length}
                   </span>
                 </div>
@@ -101,12 +101,12 @@ export default function Diagnostic() {
                     <button
                       key={option}
                       onClick={() => handleSelect(option)}
-                      className="group flex items-center justify-between text-left w-full py-4 sm:py-6 border-b border-white/10 hover:border-white/40 transition-colors focus:outline-none"
+                      className="group flex items-center justify-between text-left w-full py-4 sm:py-6 border-b border-white/10 hover:border-fuchsia-500/50 transition-colors focus:outline-none"
                     >
-                      <span className="text-lg sm:text-xl text-slate-400 group-hover:text-white transition-colors font-light">
+                      <span className="text-lg sm:text-xl text-slate-400 group-hover:text-fuchsia-100 transition-colors font-light">
                         {option}
                       </span>
-                      <svg className="w-5 h-5 text-slate-600 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                      <svg className="w-5 h-5 text-fuchsia-500 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                     </button>
                   ))}
                 </div>
@@ -131,7 +131,7 @@ export default function Diagnostic() {
                     href={generateWhatsAppLink()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-4 bg-white px-8 py-5 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.02]"
+                    className="inline-flex items-center gap-4 bg-gradient-to-r from-fuchsia-500 via-purple-500 to-indigo-500 px-8 py-5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] shadow-[0_0_40px_-10px_rgba(168,85,247,0.4)]"
                   >
                     <span>Receber Diagnóstico no WhatsApp</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
@@ -145,3 +145,4 @@ export default function Diagnostic() {
     </section>
   )
 }
+

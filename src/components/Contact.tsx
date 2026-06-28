@@ -26,7 +26,7 @@ export default function Contact() {
               href="https://wa.me/5567999999999"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-4 bg-white px-10 py-5 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.02] active:scale-95 w-full sm:w-auto justify-center"
+              className="group relative inline-flex items-center gap-4 bg-gradient-to-r from-fuchsia-500 via-purple-500 to-indigo-500 px-10 py-5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 w-full sm:w-auto justify-center shadow-[0_0_40px_-10px_rgba(168,85,247,0.4)]"
               style={{ borderRadius: '2px' }}
             >
               <span>Falar com Especialista</span>
@@ -43,7 +43,7 @@ export default function Contact() {
           
           <div className="mt-32 pt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-slate-500 font-light">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-white/20" />
+              <span className="w-2 h-2 rounded-full bg-fuchsia-500/50" />
               <span>Respondemos em até 24h úteis.</span>
             </div>
           </div>
@@ -52,3 +52,4 @@ export default function Contact() {
     </section>
   )
 }
+
