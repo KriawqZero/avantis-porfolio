@@ -9,7 +9,7 @@ export default function Problem() {
   ]
 
   return (
-    <section className="relative px-5 sm:px-12 py-32 sm:py-48 bg-[#050511] border-t border-white/5">
+    <section className="relative px-5 sm:px-12 py-32 sm:py-48 bg-avantis-bg-sec border-t border-white/5">
       <div className="mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           
@@ -18,13 +18,13 @@ export default function Problem() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8 }}
-            className="sticky top-32"
+            className="lg:sticky lg:top-32 mb-16 lg:mb-0"
           >
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.1]">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-heading tracking-tight text-avantis-text leading-[1.1]">
               O papel e a planilha trouxeram sua empresa até aqui.
             </h2>
-            <div className="mt-8 h-[1px] w-full bg-gradient-to-r from-slate-500 to-transparent opacity-20" />
-            <p className="mt-8 text-lg sm:text-xl text-slate-400 font-light leading-relaxed">
+            <div className="mt-8 h-[1px] w-full bg-gradient-to-r from-avantis-text-ter to-transparent opacity-20" />
+            <p className="mt-8 text-lg sm:text-xl text-avantis-text-sec font-light leading-relaxed">
               Mas são eles que impedem você de crescer amanhã.
             </p>
           </motion.div>
@@ -39,8 +39,8 @@ export default function Problem() {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="relative"
               >
-                <div className="absolute -left-6 top-3 h-px w-3 bg-slate-700" />
-                <p className="text-xl sm:text-3xl font-light leading-snug text-slate-300">
+                <div className="absolute -left-6 top-3 h-px w-3 bg-avantis-purple-light" />
+                <p className="text-xl sm:text-3xl font-light leading-snug text-avantis-text-sec">
                   {point}
                 </p>
               </motion.div>
@@ -53,7 +53,7 @@ export default function Problem() {
               transition={{ duration: 1, delay: 0.4 }}
               className="pt-12"
             >
-              <p className="text-sm font-semibold uppercase tracking-widest text-slate-500">
+              <p className="text-sm font-semibold uppercase tracking-widest text-avantis-purple-light">
                 Se você se identificou, é hora de profissionalizar a operação.
               </p>
             </motion.div>

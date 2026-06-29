@@ -57,14 +57,14 @@ export default function Diagnostic() {
   }
 
   return (
-    <section id="diagnostico" className="relative px-5 sm:px-12 py-32 sm:py-48 bg-[#02020a]">
+    <section id="diagnostico" className="relative px-5 sm:px-12 py-32 sm:py-48 bg-avantis-bg">
       <div className="mx-auto max-w-5xl">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
           <div className="lg:w-1/3 lg:sticky lg:top-32 mb-8 lg:mb-0">
-          <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white mb-6">
+          <h2 className="text-3xl sm:text-5xl font-heading tracking-tight text-avantis-text mb-6">
             Diagnóstico Operacional
           </h2>
-          <p className="text-lg text-slate-400 font-light max-w-xl">
+          <p className="text-lg text-avantis-text-sec font-light max-w-xl">
             Uma avaliação gratuita em 5 passos para descobrir os maiores gargalos do seu negócio.
           </p>
           </div>
@@ -73,7 +73,7 @@ export default function Diagnostic() {
           {/* Subtle line indicator */}
           <div className="absolute -left-5 top-0 h-full w-[1px] bg-white/5 hidden sm:block">
             <div 
-              className="w-full bg-gradient-to-b from-fuchsia-500 to-indigo-500 transition-all duration-700 ease-out shadow-[0_0_15px_rgba(168,85,247,0.5)]"
+              className="w-full bg-avantis-purple transition-all duration-700 ease-out"
               style={{ height: `${(currentStep / questions.length) * 100}%` }}
             />
           </div>
@@ -89,12 +89,12 @@ export default function Diagnostic() {
                 className="w-full"
               >
                 <div className="mb-8">
-                  <span className="text-xs font-semibold tracking-[0.2em] text-fuchsia-400 uppercase">
+                  <span className="text-xs font-semibold tracking-[0.2em] text-avantis-purple-light uppercase">
                     0{currentStep + 1} / 0{questions.length}
                   </span>
                 </div>
                 
-                <h3 className="text-2xl sm:text-4xl font-medium text-white mb-12 tracking-tight leading-tight">
+                <h3 className="text-2xl sm:text-4xl font-heading text-avantis-text mb-12 tracking-tight leading-tight">
                   {questions[currentStep].title}
                 </h3>
                 
@@ -103,12 +103,12 @@ export default function Diagnostic() {
                     <button
                       key={option}
                       onClick={() => handleSelect(option)}
-                      className="group flex items-center justify-between text-left w-full py-4 sm:py-6 border-b border-white/10 hover:border-fuchsia-500/50 transition-colors focus:outline-none"
+                      className="group flex items-center justify-between text-left w-full py-4 sm:py-6 border-b border-white/10 hover:border-avantis-purple transition-colors focus:outline-none"
                     >
-                      <span className="text-lg sm:text-xl text-slate-400 group-hover:text-fuchsia-100 transition-colors font-light">
+                      <span className="text-lg sm:text-xl text-avantis-text-sec group-hover:text-avantis-text transition-colors font-light">
                         {option}
                       </span>
-                      <svg className="w-5 h-5 text-fuchsia-500 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                      <svg className="w-5 h-5 text-avantis-purple opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                     </button>
                   ))}
                 </div>
@@ -121,8 +121,8 @@ export default function Diagnostic() {
                 transition={{ duration: 0.6 }}
                 className="py-12"
               >
-                <h3 className="text-3xl sm:text-5xl font-medium text-white mb-8 tracking-tight">Avaliação Concluída</h3>
-                <p className="text-lg sm:text-xl text-slate-400 font-light leading-relaxed mb-12 max-w-2xl">
+                <h3 className="text-3xl sm:text-5xl font-heading text-avantis-text mb-8 tracking-tight">Avaliação Concluída</h3>
+                <p className="text-lg sm:text-xl text-avantis-text-sec font-light leading-relaxed mb-12 max-w-2xl">
                   Identificamos oportunidades reais para automatizar seus processos, reduzir tarefas manuais repetitivas e devolver eficiência para a sua operação. 
                   <br /><br />
                   O próximo passo é uma conversa estratégica.
@@ -133,7 +133,7 @@ export default function Diagnostic() {
                     href={generateWhatsAppLink()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-4 bg-gradient-to-r from-fuchsia-500 via-purple-500 to-indigo-500 px-8 py-5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] shadow-[0_0_40px_-10px_rgba(168,85,247,0.4)]"
+                    className="inline-flex items-center gap-4 bg-gradient-to-r from-avantis-purple-dark via-avantis-purple to-avantis-purple-light rounded-lg px-8 py-5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] shadow-[0_0_40px_-10px_rgba(139,92,246,0.4)]"
                   >
                     <span>Receber Diagnóstico no WhatsApp</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>

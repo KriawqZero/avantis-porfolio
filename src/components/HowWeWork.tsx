@@ -25,7 +25,7 @@ export default function HowWeWork() {
   ]
 
   return (
-    <section className="relative px-5 sm:px-12 py-32 bg-[#050511]">
+    <section className="relative px-5 sm:px-12 py-32 bg-avantis-bg">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
           <motion.div
@@ -35,15 +35,15 @@ export default function HowWeWork() {
             transition={{ duration: 0.6 }}
             className="lg:w-1/3 lg:sticky lg:top-32 mb-16 lg:mb-0"
           >
-            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white mb-6">
+            <h2 className="text-3xl sm:text-5xl font-heading tracking-tight text-avantis-text mb-6">
               Engenharia Aplicada.
             </h2>
-            <p className="text-lg text-slate-400 font-light leading-relaxed">
+            <p className="text-lg text-avantis-text-sec font-light leading-relaxed">
               Esqueça implementações infinitas e treinamentos impossíveis. Nosso método foca em entender a dor, construir a solução e gerar retorno o mais rápido possível.
             </p>
           </motion.div>
 
-          <div className="lg:w-2/3 relative border-l border-fuchsia-500/10 pl-8 sm:pl-16 space-y-24 sm:space-y-32">
+          <div className="lg:w-2/3 relative border-l border-avantis-text-ter/10 pl-8 sm:pl-16 space-y-24 sm:space-y-32">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -54,16 +54,16 @@ export default function HowWeWork() {
               className="relative group"
             >
               {/* Massive translucent number */}
-              <div className="absolute -left-[5rem] sm:-left-[8rem] -top-10 sm:-top-16 text-[6rem] sm:text-[10rem] font-bold text-fuchsia-500/[0.03] select-none group-hover:text-fuchsia-500/[0.06] transition-colors duration-500 leading-none">
+              <div className="absolute -left-[5rem] sm:-left-[8rem] -top-10 sm:-top-16 text-[6rem] sm:text-[10rem] font-bold text-avantis-text-sec/[0.03] select-none group-hover:text-avantis-text-sec/[0.06] transition-colors duration-500 leading-none">
                 {step.num}
               </div>
               
               <div className="relative z-10 max-w-2xl">
-                <div className="absolute -left-[2.1rem] sm:-left-[4.1rem] top-3 h-[1px] w-4 bg-fuchsia-500/30 transition-all duration-300 group-hover:w-8 group-hover:bg-fuchsia-400" />
-                <h3 className="text-2xl sm:text-4xl font-medium text-white mb-4 tracking-tight">
+                <div className="absolute -left-[2.1rem] sm:-left-[4.1rem] top-3 h-[1px] w-4 bg-avantis-purple/30 transition-all duration-300 group-hover:w-8 group-hover:bg-avantis-purple" />
+                <h3 className="text-2xl sm:text-4xl font-heading text-avantis-text mb-4 tracking-tight">
                   {step.title}
                 </h3>
-                <p className="text-base sm:text-xl text-slate-400 font-light leading-relaxed">
+                <p className="text-base sm:text-xl text-avantis-text-sec font-light leading-relaxed">
                   {step.description}
                 </p>
               </div>

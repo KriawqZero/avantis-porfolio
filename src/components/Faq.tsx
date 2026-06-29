@@ -23,32 +23,32 @@ export default function Faq() {
   ]
 
   return (
-    <section className="relative px-5 sm:px-12 py-32 bg-[#050511] border-t border-white/5">
+    <section className="relative px-5 sm:px-12 py-32 bg-avantis-bg-sec border-t border-white/5">
       <div className="mx-auto max-w-4xl">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
           <div className="lg:w-1/3 lg:sticky lg:top-32">
-            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl font-heading tracking-tight text-avantis-text mb-6">
               Perguntas Frequentes
             </h2>
-            <p className="text-lg text-slate-400 font-light">
+            <p className="text-lg text-avantis-text-sec font-light">
               Tudo o que você precisa saber antes de iniciarmos nossa primeira conversa.
             </p>
           </div>
 
-          <div className="lg:w-2/3 border-t border-white/10">
+          <div className="lg:w-2/3 border-t border-avantis-text-ter/20">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="border-b border-white/10 overflow-hidden"
+                className="border-b border-avantis-text-ter/20 overflow-hidden"
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   className="w-full py-8 text-left flex items-start justify-between gap-8 focus:outline-none group"
                 >
-                  <span className="text-lg sm:text-xl font-light text-slate-200 group-hover:text-white transition-colors">{faq.question}</span>
+                  <span className="text-lg sm:text-xl font-light text-avantis-text-sec group-hover:text-avantis-text transition-colors">{faq.question}</span>
                   <div className="mt-1 flex-shrink-0">
                     <svg
-                      className={`w-5 h-5 text-slate-500 transform transition-transform duration-500 ${openIndex === index ? 'rotate-180' : ''}`}
+                      className={`w-5 h-5 text-avantis-purple-light transform transition-transform duration-500 ${openIndex === index ? 'rotate-180' : ''}`}
                       fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 9l-7 7-7-7" />
@@ -61,7 +61,7 @@ export default function Faq() {
                     openIndex === index ? 'max-h-96 opacity-100 mb-8' : 'max-h-0 opacity-0 mb-0'
                   }`}
                 >
-                  <p className="text-base text-slate-400 font-light leading-relaxed pr-8">
+                  <p className="text-base text-avantis-text-ter font-light leading-relaxed pr-8">
                     {faq.answer}
                   </p>
                 </div>

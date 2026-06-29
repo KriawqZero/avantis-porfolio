@@ -1,5 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --color-avantis-bg: #070611;
+  --color-avantis-bg-sec: #0D0B1D;
+  --color-avantis-purple: #8B5CF6;
+  --color-avantis-purple-light: #B88CFF;
+  --color-avantis-purple-dark: #5B34C9;
+  --color-avantis-blue: #18A8FF;
+  --color-avantis-pink: #FF3FA4;
+  --color-avantis-text: #FFFFFF;
+  --color-avantis-text-sec: #B8B7C9;
+  --color-avantis-text-ter: #7A7890;
+  
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
 
 @layer base {
   :root {
@@ -11,15 +27,15 @@
   }
 
   body {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background-color: #020617;
-    color: #e2e8f0;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #070611;
+    color: #FFFFFF;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background-color: rgba(217, 70, 239, 0.6);
+    background-color: rgba(139, 92, 246, 0.4);
     color: #ffffff;
   }
 }

@@ -23,7 +23,7 @@ export default function Navbar() {
           scrolled ? 'translate-y-0 opacity-100 py-3' : '-translate-y-full opacity-0 py-4'
         }`}
         style={{
-          background: scrolled ? 'rgba(2, 6, 23, 0.8)' : 'transparent',
+          background: scrolled ? 'rgba(7, 6, 17, 0.8)' : 'transparent',
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
           WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
           borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
@@ -31,7 +31,7 @@ export default function Navbar() {
       >
         <div className="mx-auto flex max-w-5xl items-center justify-between px-5 sm:px-8">
           <a href="#" className="flex items-center gap-2.5 group">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-fuchsia-200/80 block">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-avantis-purple-light block">
               Avantis Studio
             </span>
           </a>
@@ -41,7 +41,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-slate-300 rounded-xl transition-colors hover:text-white hover:bg-white/5"
+                className="px-4 py-2 text-sm font-medium text-avantis-text-sec rounded-xl transition-colors hover:text-white hover:bg-white/5"
               >
                 {link.label}
               </a>
@@ -66,7 +66,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-slate-950/80 backdrop-blur-sm sm:hidden"
+            className="fixed inset-0 z-[60] bg-avantis-bg/80 backdrop-blur-sm sm:hidden"
             onClick={() => setMobileOpen(false)}
           >
             <motion.div
@@ -74,11 +74,11 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="absolute inset-x-4 top-4 rounded-2xl border border-white/10 bg-slate-900/95 p-5 shadow-2xl backdrop-blur-xl"
+              className="absolute inset-x-4 top-4 rounded-2xl border border-white/10 bg-avantis-bg-sec/95 p-5 shadow-2xl backdrop-blur-xl"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-5">
-                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-fuchsia-200/80">
+                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-avantis-purple-light">
                   Avantis Studio
                 </span>
                 <button
@@ -97,7 +97,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block rounded-xl border border-white/5 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/5"
+                    className="block rounded-xl border border-white/5 px-4 py-3 text-sm font-medium text-avantis-text-sec transition hover:bg-white/5"
                   >
                     {link.label}
                   </a>
