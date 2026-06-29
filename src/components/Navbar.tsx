@@ -20,7 +20,7 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? 'py-3' : 'py-4 sm:py-5'
+          scrolled ? 'translate-y-0 opacity-100 py-3' : '-translate-y-full opacity-0 py-4'
         }`}
         style={{
           background: scrolled ? 'rgba(2, 6, 23, 0.8)' : 'transparent',
