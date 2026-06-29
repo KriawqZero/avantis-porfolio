@@ -27,22 +27,23 @@ export default function HowWeWork() {
   return (
     <section className="relative px-5 sm:px-12 py-32 bg-[#050511]">
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.6 }}
-          className="mb-24 sm:mb-32 max-w-2xl"
-        >
-          <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white mb-6">
-            Engenharia Aplicada.
-          </h2>
-          <p className="text-lg text-slate-400 font-light leading-relaxed">
-            Esqueça implementações infinitas e treinamentos impossíveis. Nosso método foca em entender a dor, construir a solução e gerar retorno o mais rápido possível.
-          </p>
-        </motion.div>
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6 }}
+            className="lg:w-1/3 lg:sticky lg:top-32 mb-16 lg:mb-0"
+          >
+            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white mb-6">
+              Engenharia Aplicada.
+            </h2>
+            <p className="text-lg text-slate-400 font-light leading-relaxed">
+              Esqueça implementações infinitas e treinamentos impossíveis. Nosso método foca em entender a dor, construir a solução e gerar retorno o mais rápido possível.
+            </p>
+          </motion.div>
 
-        <div className="relative border-l border-fuchsia-500/10 pl-8 sm:pl-16 space-y-24 sm:space-y-32">
+          <div className="lg:w-2/3 relative border-l border-fuchsia-500/10 pl-8 sm:pl-16 space-y-24 sm:space-y-32">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -68,6 +69,7 @@ export default function HowWeWork() {
               </div>
             </motion.div>
           ))}
+        </div>
         </div>
       </div>
     </section>

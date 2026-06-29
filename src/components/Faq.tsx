@@ -25,8 +25,8 @@ export default function Faq() {
   return (
     <section className="relative px-5 sm:px-12 py-32 bg-[#050511] border-t border-white/5">
       <div className="mx-auto max-w-4xl">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-          <div className="lg:w-1/3">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+          <div className="lg:w-1/3 lg:sticky lg:top-32">
             <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-white mb-6">
               Perguntas Frequentes
             </h2>

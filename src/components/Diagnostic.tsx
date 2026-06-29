@@ -58,17 +58,18 @@ export default function Diagnostic() {
 
   return (
     <section id="diagnostico" className="relative px-5 sm:px-12 py-32 sm:py-48 bg-[#02020a]">
-      <div className="mx-auto max-w-4xl">
-        <div className="mb-16">
+      <div className="mx-auto max-w-5xl">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+          <div className="lg:w-1/3 lg:sticky lg:top-32 mb-8 lg:mb-0">
           <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white mb-6">
             Diagnóstico Operacional
           </h2>
           <p className="text-lg text-slate-400 font-light max-w-xl">
             Uma avaliação gratuita em 5 passos para descobrir os maiores gargalos do seu negócio.
           </p>
-        </div>
+          </div>
 
-        <div className="relative min-h-[400px]">
+          <div className="lg:w-2/3 relative min-h-[400px]">
           {/* Subtle line indicator */}
           <div className="absolute -left-5 top-0 h-full w-[1px] bg-white/5 hidden sm:block">
             <div 
@@ -141,6 +142,7 @@ export default function Diagnostic() {
               </motion.div>
             )}
           </AnimatePresence>
+        </div>
         </div>
       </div>
     </section>
