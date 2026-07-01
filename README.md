@@ -1,73 +1,48 @@
-# React + TypeScript + Vite
+# Avantis Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Código-fonte da presença digital do estúdio de desenvolvimento Avantis.
 
-Currently, two official plugins are available:
+## Sobre
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este repositório contém a aplicação web institucional da Avantis Studio. O projeto foi construído para servir como o principal ponto de contato e comunicação da empresa, apresentando nossa forma de trabalhar, os problemas que resolvemos e os serviços de desenvolvimento sob medida que oferecemos.
 
-## React Compiler
+A interface foi projetada para conversar diretamente com o nosso público-alvo (empresas e profissionais), transmitindo clareza técnica e maturidade, fugindo do tom excessivamente comercial ou generalista.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Filosofia
 
-## Expanding the ESLint configuration
+A comunicação da Avantis Studio é baseada na confiança através da simplicidade. 
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+A interface evita o uso de elementos visuais barulhentos ou distrações desnecessárias. Focamos no contraste, na boa tipografia e no uso muito sutil de animações apenas para guiar a leitura. Menos elementos na tela significam mais atenção ao que realmente importa: a engenharia de software e a solução de problemas operacionais reais.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+A base de código reflete essa mesma linha de pensamento: poucas dependências, organização lógica e foco em desempenho.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Identidade Visual
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+A direção de arte adota um tema escuro profundo (`#070611`), trazendo elegância e peso institucional. 
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Na tipografia, combinamos a sofisticação da *Playfair Display* nos títulos com a leitura limpa e técnica da *Inter* nos parágrafos. 
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Os destaques utilizam uma paleta de roxos (como `#8B5CF6`), aplicados de forma cirúrgica em gradientes, linhas de composição e indicativos visuais, garantindo que o design permaneça minimalista.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Tecnologias
+
+- **React e Vite**: Escolhidos pela velocidade do ambiente de desenvolvimento e flexibilidade para construção da interface.
+- **Tailwind CSS v4**: Utilizado para estilização através de utilitários e CSS moderno, garantindo manutenção simplificada e adesão rígida à nossa identidade visual.
+- **Framer Motion**: Ferramenta adotada para criar animações fluidas baseadas no comportamento de rolagem da página, elevando a experiência do usuário.
+- **TypeScript**: Garantia de tipagem estática, estruturação sólida e previsibilidade no código.
+
+## Aprendizados
+
+A construção deste projeto exigiu um forte equilíbrio entre direção de arte, experiência do usuário e engenharia. 
+
+Do lado técnico, aprofundou a construção de interfaces imersivas utilizando o Framer Motion para orquestrar animações de entrada de elementos e *scroll tracking*. 
+
+Do lado de produto, o principal aprendizado foi estruturar um *storytelling institucional* honesto e sóbrio. Houve um intenso esforço de redação para cortar jargões e excessos mercadológicos, alinhando a mensagem escrita com a seriedade visual da marca. O desafio foi transmitir autoridade técnica unicamente através de design minimalista, arquitetura frontend limpa e comunicação direta.
+
+## Como executar
+
+Para rodar o projeto localmente:
+
+1. Clone este repositório
+2. Instale as dependências com `npm install`
+3. Inicie o servidor de desenvolvimento utilizando `npm run dev`
