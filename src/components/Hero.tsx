@@ -30,7 +30,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-heading font-bold leading-[1.05] tracking-tight text-avantis-text mb-8 sm:mb-12"
           >
-            Desenvolvemos <br className="hidden sm:block" /> soluções tecnológicas para empresas <br className="hidden sm:block" /> que desejam autonomia.
+            Software feito para <br className="hidden sm:block" /> a operação que o seu <br className="hidden sm:block" /> negócio já tem.
           </motion.h1>
 
           <div className="flex flex-col sm:flex-row sm:items-end justify-between w-full gap-8">
@@ -40,7 +40,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-base sm:text-lg lg:text-xl leading-relaxed text-avantis-text-sec max-w-xl font-light"
             >
-              Profissionalize seus processos, reduza o retrabalho e não dependa mais de planilhas desorganizadas ou sistemas genéricos que limitam sua operação.
+              Automação e sistemas sob medida para quem hoje resolve no papel, na planilha e no WhatsApp — sem obrigar o negócio a se adaptar a um sistema que não foi pensado para ele.
             </motion.p>
 
             <motion.div
@@ -53,7 +53,7 @@ export default function Hero() {
                 href="#diagnostico"
                 className="group relative inline-flex items-center gap-4 bg-gradient-to-r from-avantis-purple-dark via-avantis-purple to-avantis-purple-light px-8 py-5 text-sm font-bold text-white transition-transform hover:scale-[1.02] active:scale-95 shadow-[0_0_40px_-10px_rgba(139,92,246,0.4)] rounded-lg"
               >
-                <span>Fazer Diagnóstico Operacional</span>
+                <span>Começar por 5 perguntas</span>
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </a>
             </motion.div>

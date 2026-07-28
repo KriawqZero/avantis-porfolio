@@ -1,21 +1,24 @@
 import { motion } from 'framer-motion'
 
 export default function Solutions() {
+  // Hierarquia de oferta (28/07/2026): sistemas sob medida e automação são a
+  // oferta principal; site com captação é secundária — por isso ela é o
+  // último card e não o de destaque.
   const items = [
     {
-      title: 'Gestão de Estoque e Compras',
-      description: 'Tenha controle absoluto das suas entradas e saídas. Saiba o que comprar, quando comprar e quanto do seu capital está parado na prateleira.',
-      tags: ['Controle Financeiro', 'Previsibilidade']
+      title: 'Sistemas sob medida',
+      description: 'Estoque, pedidos, clientes e o fechamento do mês num lugar só — com as telas que a sua operação usa de verdade, e sem os módulos que ninguém abre.',
+      tags: ['Estoque e pedidos', 'Cadastro e histórico']
     },
     {
-      title: 'Automação de Atendimento',
-      description: 'Pare de perder clientes porque o WhatsApp estava congestionado. Digitalize o fluxo de atendimento, agendamentos e respostas rápidas.',
-      tags: ['Agendamentos', 'Histórico de Clientes']
+      title: 'Automação de tarefas repetidas',
+      description: 'A tarefa que alguém refaz todo dia — copiar pedido, conferir planilha, responder a mesma pergunta — passa a acontecer sozinha, no lugar certo.',
+      tags: ['Menos retrabalho', 'Registro automático']
     },
     {
-      title: 'Plataforma Própria de Vendas',
-      description: 'Liberte-se das taxas de aplicativos de delivery (iFood, etc). Venda diretamente com sua marca através do seu próprio canal.',
-      tags: ['Sem Taxas Extras', 'Independência']
+      title: 'Site com captação',
+      description: 'Presença própria, com o pedido ou o contato chegando direto para você. Um canal seu, sem depender só de plataforma de terceiro.',
+      tags: ['Canal próprio', 'Contato direto']
     },
   ]
 
@@ -31,11 +34,11 @@ export default function Solutions() {
             className="lg:w-1/3 lg:sticky lg:top-32 mb-12 lg:mb-0"
           >
             <h2 className="text-3xl sm:text-5xl font-heading tracking-tight text-avantis-text mb-6">
-              Onde criamos impacto.
+              O que a gente constrói.
             </h2>
             <div className="h-[1px] w-full max-w-md bg-gradient-to-r from-avantis-purple/30 to-transparent mb-8" />
             <p className="text-lg text-avantis-text-sec font-light leading-relaxed">
-              Construímos ferramentas para centralizar as operações críticas da sua empresa, focando exclusivamente no ganho de autonomia.
+              Ferramenta pronta serve bem em muita coisa. O trabalho aqui começa onde ela não serve: a parte do seu negócio que continua no caderno, na planilha ou na cabeça de alguém.
             </p>
           </motion.div>
 

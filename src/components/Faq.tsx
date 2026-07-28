@@ -14,11 +14,11 @@ export default function Faq() {
     },
     {
       question: 'Demora muito para ficar pronto?',
-      answer: 'Não existe um prazo padrão, pois cada projeto possui escopo diferente. Mas nosso objetivo é sempre entregar uma primeira versão em poucas semanas, para que você já comece a ver os ganhos de tempo.'
+      answer: 'Não existe prazo padrão: depende do escopo, e o escopo só fica claro depois de entender a operação. O que dá para combinar desde o início é a ordem — a parte que resolve o problema mais caro vem primeiro, e você acompanha em uso antes do resto ficar pronto. O prazo real é combinado por escrito quando o escopo estiver definido, não antes.'
     },
     {
       question: 'Eu não entendo muito de tecnologia, vou conseguir usar?',
-      answer: 'Com certeza. Desenhamos a interface da aplicação para ser extremamente fácil e intuitiva para a sua equipe usar no dia a dia, muito mais fácil do que sistemas genéricos cheios de opções que você não usa.'
+      answer: 'A interface é desenhada em cima do jeito que a sua equipe já trabalha, com as telas que a operação usa de verdade — e não com um catálogo de opções que ninguém abre. Na prática isso significa menos coisa na tela para aprender. Ainda assim, sistema novo tem período de adaptação, e faz parte do trabalho ajustar o que atrapalhar no uso.'
     }
   ]
 

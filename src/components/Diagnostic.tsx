@@ -65,7 +65,7 @@ export default function Diagnostic() {
             Diagnóstico Operacional
           </h2>
           <p className="text-lg text-avantis-text-sec font-light max-w-xl">
-            Uma avaliação gratuita em 5 passos para descobrir os maiores gargalos do seu negócio.
+            Cinco perguntas sobre como a sua operação funciona hoje. No fim, você decide se quer conversar — nada é enviado sem você clicar.
           </p>
           </div>
 
@@ -121,11 +121,14 @@ export default function Diagnostic() {
                 transition={{ duration: 0.6 }}
                 className="py-12"
               >
-                <h3 className="text-3xl sm:text-5xl font-heading text-avantis-text mb-8 tracking-tight">Avaliação Concluída</h3>
+                <h3 className="text-3xl sm:text-5xl font-heading text-avantis-text mb-8 tracking-tight">Respostas registradas</h3>
+                {/* Sem diagnóstico automático: cinco respostas não permitem
+                    afirmar o que a operação precisa. O honesto é dizer que o
+                    resumo vai junto e que a leitura acontece na conversa. */}
                 <p className="text-lg sm:text-xl text-avantis-text-sec font-light leading-relaxed mb-12 max-w-2xl">
-                  Identificamos oportunidades reais para automatizar seus processos, reduzir tarefas manuais repetitivas e devolver eficiência para a sua operação. 
+                  Cinco respostas não dizem o que o seu negócio precisa — mas já dizem por onde começar a conversa.
                   <br /><br />
-                  O próximo passo é uma conversa estratégica.
+                  O botão abaixo abre o WhatsApp com esse resumo pronto. Se preferir, é só fechar esta página: nada foi enviado.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6">
@@ -135,7 +138,7 @@ export default function Diagnostic() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-4 bg-gradient-to-r from-avantis-purple-dark via-avantis-purple to-avantis-purple-light rounded-lg px-8 py-5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] shadow-[0_0_40px_-10px_rgba(139,92,246,0.4)]"
                   >
-                    <span>Receber Diagnóstico no WhatsApp</span>
+                    <span>Abrir conversa no WhatsApp</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                   </a>
                 </div>

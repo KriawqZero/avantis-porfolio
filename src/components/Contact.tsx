@@ -28,7 +28,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="group relative inline-flex items-center gap-4 bg-gradient-to-r from-avantis-purple-dark via-avantis-purple to-avantis-purple-light px-10 py-5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 w-full sm:w-auto justify-center shadow-[0_0_40px_-10px_rgba(139,92,246,0.4)] rounded-lg"
             >
-              <span>Falar com Especialista</span>
+              <span>Conversar sobre a sua operação</span>
               <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
             
@@ -36,14 +36,16 @@ export default function Contact() {
               href={`mailto:${import.meta.env.VITE_CONTACT_EMAIL || 'contato@empresa.com'}`}
               className="text-sm font-medium text-avantis-text-sec hover:text-white transition-colors"
             >
-              Ou envie um e-mail corporativo
+              Ou mande um e-mail
             </a>
           </div>
-          
+
           <div className="mt-32 pt-12 border-t border-avantis-text-ter/20 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-avantis-text-ter font-light">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-avantis-purple" />
-              <span>Respondemos em até 24h úteis.</span>
+              {/* Sem promessa de prazo de resposta: a Avantis é um estúdio
+                  pequeno e quem responde é a mesma pessoa que desenvolve. */}
+              <span>Quem responde é quem desenvolve.</span>
             </div>
           </div>
         </motion.div>

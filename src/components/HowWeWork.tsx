@@ -15,7 +15,7 @@ export default function HowWeWork() {
     {
       num: '03',
       title: 'Entregamos a primeira versão',
-      description: 'Sem meses de espera. Focamos em entregar a funcionalidade mais valiosa rapidamente para uso em produção.'
+      description: 'A parte que resolve o problema mais caro vem primeiro e vai para uso real — antes do resto do sistema existir. Assim você julga o software funcionando, não uma promessa.'
     },
     {
       num: '04',
@@ -39,7 +39,7 @@ export default function HowWeWork() {
               Engenharia Aplicada.
             </h2>
             <p className="text-lg text-avantis-text-sec font-light leading-relaxed">
-              Esqueça implementações infinitas e treinamentos impossíveis. Nosso método foca em entender a dor, construir a solução e gerar retorno o mais rápido possível.
+              Primeiro entender como o negócio funciona hoje. Depois construir só o que a operação usa de verdade — na ordem que faz diferença para quem trabalha nela.
             </p>
           </motion.div>
 
