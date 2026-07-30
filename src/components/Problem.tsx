@@ -1,65 +1,71 @@
 import { motion } from 'framer-motion'
 
+/**
+ * A virada.
+ *
+ * Esta é a única seção clara da página, e isso é estrutural, não decorativo: é o
+ * mesmo mecanismo do "slide de virada" dos carrosséis da Avantis (ver
+ * avantis-render/docs/ARTE.md), que existe porque um bloco claro no meio de um
+ * scroll escuro é o que faz o olho parar. As cores vêm de paletas.ts:violeta.claro.
+ *
+ * Também encolheu. A versão antiga ocupava duas telas com quatro frases separadas
+ * por 20vh de vazio — o argumento é forte e não precisava de tanto chão.
+ */
 export default function Problem() {
-  const painPoints = [
-    "Controle de estoque feito em planilhas que não batem;",
-    "Gestão de pedidos misturada no meio do WhatsApp da empresa;",
-    "Falta de histórico de clientes e atendimentos espalhados em papéis;",
-    "Pagamento de mensalidades altas por sistemas que não se adaptam à sua rotina."
+  const sintomas = [
+    'Controle de estoque em planilhas que não batem',
+    'Pedidos misturados no meio do WhatsApp da empresa',
+    'Histórico de cliente espalhado em papel e na memória',
+    'Mensalidade alta por um sistema que não se adapta',
   ]
 
   return (
-    <section className="relative px-5 sm:px-12 py-32 sm:py-48 bg-avantis-bg-sec border-t border-white/5">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8 }}
-            className="lg:sticky lg:top-32 mb-16 lg:mb-0"
-          >
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-heading tracking-tight text-avantis-text leading-[1.1]">
-              O papel e a planilha trouxeram sua empresa até aqui.
-            </h2>
-            <div className="mt-8 h-[1px] w-full bg-gradient-to-r from-avantis-text-ter to-transparent opacity-20" />
-            <p className="mt-8 text-lg sm:text-xl text-avantis-text-sec font-light leading-relaxed">
-              Mas são eles que impedem você de crescer amanhã.
-            </p>
-          </motion.div>
+    <section className="superficie-clara py-[var(--espaco-secao)]">
+      <div className="container-avantis">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-[length:var(--t-h2)] leading-[1.08] medida-curta mb-6">
+            O papel e a planilha trouxeram sua empresa{' '}
+            <span className="realce">até aqui</span>.
+          </h2>
+          <p className="text-[length:var(--t-corpo-g)] leading-relaxed text-claro-texto-sec medida mb-14 sm:mb-20">
+            Mas são eles que impedem você de crescer amanhã.
+          </p>
+        </motion.div>
 
-          <div className="space-y-12 sm:space-y-20 pt-8 lg:pt-32">
-            {painPoints.map((point, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="relative"
-              >
-                <div className="absolute -left-6 top-3 h-px w-3 bg-avantis-purple-light" />
-                <p className="text-xl sm:text-3xl font-light leading-snug text-avantis-text-sec">
-                  {point}
-                </p>
-              </motion.div>
-            ))}
-
-            <motion.div
+        <ul className="grid gap-x-12 gap-y-0 sm:grid-cols-2 border-t border-linha-clara">
+          {sintomas.map((s, i) => (
+            <motion.li
+              key={s}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="pt-12"
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.4, delay: Math.min(i, 3) * 0.06 }}
+              className="flex gap-4 border-b border-linha-clara py-6"
             >
-              <p className="text-sm font-semibold uppercase tracking-widest text-avantis-purple-light">
-                Se você se identificou, é hora de profissionalizar a operação.
-              </p>
-            </motion.div>
-          </div>
-          
-        </div>
+              <span className="tec text-acento-escuro pt-1.5 shrink-0">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span className="text-[length:var(--t-corpo)] leading-snug text-claro-texto">
+                {s}
+              </span>
+            </motion.li>
+          ))}
+        </ul>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="tec text-acento-escuro mt-12"
+        >
+          Se você se identificou, o problema não é falta de esforço — é falta de sistema.
+        </motion.p>
       </div>
     </section>
   )

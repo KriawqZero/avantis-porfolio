@@ -1,56 +1,112 @@
 import { motion } from 'framer-motion'
+import { EMAIL, linkWhatsApp } from '../data/contato'
 
+/**
+ * Fechamento.
+ *
+ * Três mudanças em relação à versão anterior:
+ *
+ * 1. A frase que carrega o argumento da marca ("seu negócio não precisa se
+ *    adaptar ao software") estava em `text-avantis-text-ter`, o cinza de
+ *    legenda. Era a hierarquia de cor invertida no ponto de fechar.
+ * 2. Ganhou corpo institucional: quem responde, por onde, e o que acontece
+ *    depois da mensagem. O medo de "vou ser abordado por vendedor" é uma razão
+ *    silenciosa de mensagem não enviada.
+ * 3. Sem promessa de prazo de resposta — veto de 28/07/2026, e correto: um
+ *    estúdio de uma pessoa não sustenta SLA.
+ */
 export default function Contact() {
+  const passos = [
+    'Você manda uma mensagem contando o que trava a operação hoje.',
+    'A gente conversa para entender como o negócio funciona de verdade.',
+    'Se fizer sentido para os dois lados, o escopo e o preço vão por escrito.',
+  ]
+
   return (
-    <section id="contato" className="relative px-5 sm:px-12 py-32 sm:py-48 bg-avantis-bg">
-      <div className="mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <h2 className="text-[2.5rem] sm:text-6xl md:text-7xl font-heading tracking-tight text-avantis-text mb-8 leading-[1.05]">
-            Inicie uma conversa.
-            <br />
-            <span className="text-avantis-text-ter">Seu negócio não precisa <br className="hidden sm:block" /> se adaptar ao software.</span>
-          </h2>
-          
-          <p className="text-lg sm:text-xl text-avantis-text-sec font-light mb-16 max-w-2xl mx-auto leading-relaxed">
-            Mande uma mensagem. Vamos entender juntos como a tecnologia pode ajudar sua empresa a trabalhar menos em tarefas manuais e ter mais autonomia operacional.
-          </p>
+    <section id="contato" className="relative py-[var(--espaco-secao-g)]">
+      <div className="container-avantis">
+        <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-7"
+          >
+            <p className="tec text-acento-claro mb-5">Próximo passo</p>
+            <h2 className="text-[length:var(--t-h1)] leading-[1.04] medida-curta mb-8">
+              Seu negócio não precisa <span className="realce">se adaptar</span> ao software.
+            </h2>
+            <p className="text-[length:var(--t-corpo-g)] leading-relaxed text-texto-sec medida mb-12">
+              Mande uma mensagem contando o que atrapalha o dia a dia. A conversa
+              começa por aí — entender a operação antes de falar de sistema.
+            </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
-            <a
-              href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER || '5567999999999'}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-4 bg-gradient-to-r from-avantis-purple-dark via-avantis-purple to-avantis-purple-light px-10 py-5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 w-full sm:w-auto justify-center shadow-[0_0_40px_-10px_rgba(139,92,246,0.4)] rounded-lg"
-            >
-              <span>Conversar sobre a sua operação</span>
-              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </a>
-            
-            <a
-              href={`mailto:${import.meta.env.VITE_CONTACT_EMAIL || 'contato@empresa.com'}`}
-              className="text-sm font-medium text-avantis-text-sec hover:text-white transition-colors"
-            >
-              Ou mande um e-mail
-            </a>
-          </div>
-
-          <div className="mt-32 pt-12 border-t border-avantis-text-ter/20 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-avantis-text-ter font-light">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-avantis-purple" />
-              {/* Sem promessa de prazo de resposta: a Avantis é um estúdio
-                  pequeno e quem responde é a mesma pessoa que desenvolve. */}
-              <span>Quem responde é quem desenvolve.</span>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-5">
+              {linkWhatsApp() && (
+                <a
+                  href={linkWhatsApp()!}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-3 rounded-lg bg-acento px-8 py-4.5 text-sm font-semibold text-white transition-colors hover:bg-acento-escuro"
+                >
+                  <span>Conversar sobre a sua operação</span>
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              )}
+              {EMAIL && (
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="text-sm font-medium text-texto-sec underline decoration-linha-forte underline-offset-4 transition-colors hover:text-texto"
+                >
+                  Ou mande um e-mail
+                </a>
+              )}
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="lg:col-span-5 lg:border-l lg:border-linha lg:pl-12"
+          >
+            <p className="tec text-texto-ter mb-6">O que acontece depois</p>
+            <ol className="space-y-5 mb-12">
+              {passos.map((p, i) => (
+                <li key={i} className="flex gap-4">
+                  <span className="tec text-acento-claro pt-1 shrink-0">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-[length:var(--t-corpo)] leading-relaxed text-texto-sec">
+                    {p}
+                  </span>
+                </li>
+              ))}
+            </ol>
+
+            {/* A apresentação completa vive em `Quem.tsx`, mais acima na página.
+                Aqui fica só o que reduz risco no momento de mandar a mensagem. */}
+            <div className="border-t border-linha pt-8">
+              <p className="text-sm leading-relaxed text-texto-sec mb-6">
+                Quem responde é quem desenvolve — sem intermediário comercial no
+                meio do caminho.
+              </p>
+              <a
+                href="https://instagram.com/avantis.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tec inline-flex items-center gap-2 text-texto-sec transition-colors hover:text-acento-claro"
+              >
+                instagram.com/avantis.dev ↗
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
 }
-

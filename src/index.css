@@ -1,41 +1,188 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
 @import "tailwindcss";
 
+/**
+ * Sistema visual da Avantis.
+ *
+ * As cores não são inventadas aqui: vêm de `paletas.ts` do avantis-render, que é
+ * onde a identidade da marca está definida e versionada. A família é a `violeta`,
+ * incluindo o par invertido (`claro`) — que existe justamente para a virada de
+ * superfície e que o site nunca tinha usado.
+ *
+ * Regra herdada do avantis-render e que vale igual aqui: o componente consome,
+ * não decide. Valor de design novo nasce neste arquivo.
+ */
+
 @theme {
-  --color-avantis-bg: #070611;
-  --color-avantis-bg-sec: #0D0B1D;
-  --color-avantis-purple: #8B5CF6;
-  --color-avantis-purple-light: #B88CFF;
-  --color-avantis-purple-dark: #5B34C9;
-  --color-avantis-blue: #18A8FF;
-  --color-avantis-pink: #FF3FA4;
-  --color-avantis-text: #FFFFFF;
-  --color-avantis-text-sec: #B8B7C9;
-  --color-avantis-text-ter: #7A7890;
-  
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
+  /* ── Superfícies ───────────────────────────────────────────────
+     Três, não duas. O site antigo tinha #070611 e #0D0B1D, cuja
+     diferença é imperceptível fora de monitor calibrado — o que
+     fazia toda seção parecer a mesma seção. */
+  --color-fundo: #070611;
+  --color-fundo-elev: #12101F;
+  --color-fundo-claro: #EDE9FE;
+
+  /* ── Texto sobre fundo escuro ──────────────────────────────── */
+  --color-texto: #F3F1FD;
+  --color-texto-sec: #BFB9DC;
+  --color-texto-ter: #948EB3;
+
+  /* ── Texto sobre a superfície clara (a virada) ─────────────── */
+  --color-claro-texto: #160F2E;
+  --color-claro-texto-sec: #3B3363;
+  --color-claro-texto-ter: #6A5F94;
+
+  /* ── Acento ────────────────────────────────────────────────────
+     Quatro papéis e nada além: destaque itálico, CTA primário,
+     régua ativa, foco. O magenta é o fim do gradiente do próprio
+     logo — a marca sempre teve dois tons, o site usava um. */
+  --color-acento: #8B5CF6;
+  --color-acento-claro: #A78BFA;
+  --color-acento-escuro: #6D28D9;
+  --color-magenta: #D633F5;
+
+  /* ── Linhas ───────────────────────────────────────────────────
+     6% era invisível. */
+  --color-linha: rgba(255, 255, 255, 0.09);
+  --color-linha-forte: rgba(255, 255, 255, 0.16);
+  --color-linha-clara: rgba(22, 15, 46, 0.14);
+
+  --font-titulo: 'Playfair Display', Georgia, serif;
+  --font-corpo: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
   :root {
     color-scheme: dark;
+
+    /* Escala fluida. O site antigo saltava por breakpoint
+       (text-3xl sm:text-5xl lg:text-6xl), o que dava três tamanhos
+       discretos e nenhum ritmo entre eles. */
+    --t-h1: clamp(2.6rem, 6vw, 5rem);
+    --t-h2: clamp(2rem, 4vw, 3.25rem);
+    --t-h3: clamp(1.35rem, 2.2vw, 1.85rem);
+    --t-corpo-g: clamp(1.125rem, 1.4vw, 1.3125rem);
+    --t-corpo: clamp(1.0625rem, 1.1vw, 1.1875rem);
+    --t-tec: 0.6875rem;
+
+    /* Ritmo vertical. py-32/py-48 fixos produziam telas com metade
+       inferior vazia; isto escala com a viewport.
+       Dois blocos vizinhos somam padding, então 12rem de cada lado
+       viravam 384px de nada entre uma seção e outra. */
+    --espaco-secao: clamp(4rem, 8vw, 6rem);
+    --espaco-secao-g: clamp(5.5rem, 11vw, 8rem);
   }
 
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background-color: #070611;
-    color: #FFFFFF;
+    font-family: var(--font-corpo);
+    background-color: var(--color-fundo);
+    color: var(--color-texto-sec);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-synthesis-weight: none;
+  }
+
+  /* Nada de movimento para quem pediu para não ter. Inclui o scroll
+     suave — que é justamente o que mais incomoda quem tem sensibilidade
+     vestibular, e que o site forçava globalmente. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* O site removia o contorno com focus:outline-none e não colocava
+     nada no lugar: navegação por teclado ficava cega. */
+  :focus-visible {
+    outline: 2px solid var(--color-acento-claro);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 
   ::selection {
-    background-color: rgba(139, 92, 246, 0.4);
-    color: #ffffff;
+    background-color: color-mix(in srgb, var(--color-acento) 40%, transparent);
+    color: #fff;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-titulo);
+    color: var(--color-texto);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@layer components {
+  /* ── Terceiro registro tipográfico ──────────────────────────────
+     Serifa para manchete, sans para leitura, e ISTO para dado, rótulo,
+     stack e número. É o registro que faltava e que fazia manchete e
+     corpo soarem como a mesma voz em tamanhos diferentes. */
+  .tec {
+    font-family: var(--font-corpo);
+    font-size: var(--t-tec);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Destaque em itálico roxo — a assinatura que a Avantis usa em todo
+     carrossel do Instagram (template.ts) e que o site ignorava. */
+  .realce {
+    font-style: italic;
+    color: var(--color-acento);
+  }
+  .superficie-clara .realce {
+    color: var(--color-acento-escuro);
+  }
+
+  /* Medida de leitura travada. O site alternava max-w-xl/2xl/4xl sem
+     critério, gerando linhas de 45 a 95 caracteres na mesma página. */
+  .medida {
+    max-width: 66ch;
+  }
+  .medida-curta {
+    max-width: 46ch;
+  }
+
+  .container-avantis {
+    width: 100%;
+    max-width: 75rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  /* A virada: a única seção clara da página. Cores de paletas.ts:violeta.claro. */
+  .superficie-clara {
+    background-color: var(--color-fundo-claro);
+    color: var(--color-claro-texto-sec);
+  }
+  .superficie-clara h1,
+  .superficie-clara h2,
+  .superficie-clara h3 {
+    color: var(--color-claro-texto);
+  }
+  .superficie-clara .tec {
+    color: var(--color-acento-escuro);
   }
 }

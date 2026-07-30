@@ -1,78 +1,122 @@
 import { motion } from 'framer-motion'
 
+/**
+ * Arranjo D — lista com régua, largura plena.
+ *
+ * Trocou o 1/3 sticky + 2/3 que TODAS as outras seções usavam. A regra vem do
+ * tokens.ts do avantis-render: nunca dois arranjos iguais seguidos. Era o que
+ * fazia o olho parar de olhar a partir da terceira seção.
+ *
+ * Absorveu também a parte comercial que estava escondida no FAQ. Propriedade do
+ * código e forma de cobrança são argumento de venda, não rodapé — e são
+ * exatamente os dois riscos que travam a decisão de quem vai contratar um
+ * fornecedor desconhecido.
+ *
+ * Sem prazo, em nenhum lugar: veto de 28/07/2026.
+ */
 export default function HowWeWork() {
-  const steps = [
+  const passos = [
     {
       num: '01',
-      title: 'Entendemos o seu processo',
-      description: 'Mapeamos como sua empresa funciona hoje e onde estão os gargalos operacionais e o retrabalho.'
+      titulo: 'Entender o processo',
+      texto: 'Como a empresa funciona hoje, onde está o retrabalho e o que custa caro sem aparecer na conta.',
     },
     {
       num: '02',
-      title: 'Desenhamos a solução',
-      description: 'Não vendemos templates. Projetamos a arquitetura do software especificamente para a sua realidade.'
+      titulo: 'Desenhar a solução',
+      texto: 'Nada de template. A arquitetura é projetada para a operação que existe, não para uma média de mercado.',
     },
     {
       num: '03',
-      title: 'Entregamos a primeira versão',
-      description: 'A parte que resolve o problema mais caro vem primeiro e vai para uso real — antes do resto do sistema existir. Assim você julga o software funcionando, não uma promessa.'
+      titulo: 'Entregar a parte que dói',
+      texto: 'O que resolve o problema mais caro vai para uso real antes do resto existir. Você julga o software funcionando, não uma promessa.',
     },
     {
       num: '04',
-      title: 'Evoluímos com a empresa',
-      description: 'O software cresce conforme as suas vendas crescem. Adicionamos novas camadas de automação no momento certo.'
-    }
+      titulo: 'Evoluir junto',
+      texto: 'O sistema cresce com o negócio. Camada nova entra quando faz diferença, não quando cabe no contrato.',
+    },
+  ]
+
+  const contratacao = [
+    {
+      titulo: 'O software é seu',
+      texto: 'O que for construído fica com você. Manter a evolução e a hospedagem aqui é escolha, não amarra.',
+    },
+    {
+      titulo: 'Cobrança por projeto',
+      texto: 'Escopo fechado e combinado por escrito. Sem mensalidade obrigatória e sem módulo que ninguém abre.',
+    },
+    {
+      titulo: 'Sem prazo antes do escopo',
+      texto: 'Prazo só é honesto depois de entender a operação. O que dá para combinar desde o início é a ordem da entrega.',
+    },
   ]
 
   return (
-    <section className="relative px-5 sm:px-12 py-32 bg-avantis-bg">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.6 }}
-            className="lg:w-1/3 lg:sticky lg:top-32 mb-16 lg:mb-0"
-          >
-            <h2 className="text-3xl sm:text-5xl font-heading tracking-tight text-avantis-text mb-6">
-              Engenharia Aplicada.
+    <section id="processo" className="relative py-[var(--espaco-secao-g)]">
+      <div className="container-avantis">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5 }}
+          className="mb-16 sm:mb-20 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8"
+        >
+          <div>
+            <p className="tec text-acento-claro mb-5">Como funciona um projeto</p>
+            <h2 className="text-[length:var(--t-h2)] leading-[1.08] medida-curta">
+              Primeiro entender. <span className="realce">Depois construir</span>.
             </h2>
-            <p className="text-lg text-avantis-text-sec font-light leading-relaxed">
-              Primeiro entender como o negócio funciona hoje. Depois construir só o que a operação usa de verdade — na ordem que faz diferença para quem trabalha nela.
-            </p>
-          </motion.div>
+          </div>
+          <p className="text-[length:var(--t-corpo)] leading-relaxed text-texto-sec medida lg:max-w-sm lg:text-right">
+            Só o que a operação usa de verdade, na ordem que faz diferença para
+            quem trabalha nela.
+          </p>
+        </motion.div>
 
-          <div className="lg:w-2/3 relative border-l border-avantis-text-ter/10 pl-8 sm:pl-16 space-y-24 sm:space-y-32">
-          {steps.map((step, index) => (
+        {/* Quatro colunas com régua no topo — nada de coluna sticky. */}
+        <div className="grid gap-y-12 gap-x-8 sm:grid-cols-2 lg:grid-cols-4 mb-24 sm:mb-32">
+          {passos.map((p, i) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative group"
+              key={p.num}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.45, delay: Math.min(i, 3) * 0.07 }}
+              className="border-t border-linha-forte pt-6"
             >
-              {/* Massive translucent number */}
-              <div className="absolute -left-[5rem] sm:-left-[8rem] -top-10 sm:-top-16 text-[6rem] sm:text-[10rem] font-bold text-avantis-text-sec/[0.03] select-none group-hover:text-avantis-text-sec/[0.06] transition-colors duration-500 leading-none">
-                {step.num}
-              </div>
-              
-              <div className="relative z-10 max-w-2xl">
-                <div className="absolute -left-[2.1rem] sm:-left-[4.1rem] top-3 h-[1px] w-4 bg-avantis-purple/30 transition-all duration-300 group-hover:w-8 group-hover:bg-avantis-purple" />
-                <h3 className="text-2xl sm:text-4xl font-heading text-avantis-text mb-4 tracking-tight">
-                  {step.title}
-                </h3>
-                <p className="text-base sm:text-xl text-avantis-text-sec font-light leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
+              <p className="tec text-acento-claro mb-4">{p.num}</p>
+              <h3 className="text-[length:var(--t-h3)] leading-tight mb-3">{p.titulo}</h3>
+              <p className="text-[length:var(--t-corpo)] leading-relaxed text-texto-sec">
+                {p.texto}
+              </p>
             </motion.div>
           ))}
         </div>
-        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5 }}
+          className="border border-linha bg-fundo-elev p-8 sm:p-12"
+        >
+          <p className="tec text-texto-ter mb-8">Como a contratação funciona</p>
+          <div className="grid gap-10 sm:gap-12 md:grid-cols-3">
+            {contratacao.map((c) => (
+              <div key={c.titulo}>
+                <h3 className="font-corpo text-base font-semibold text-texto mb-2.5">
+                  {c.titulo}
+                </h3>
+                <p className="text-[length:var(--t-corpo)] leading-relaxed text-texto-sec">
+                  {c.texto}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )
 }
-

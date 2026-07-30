@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="theme-color" content="#0f172a" />
-    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#070611" />
+    <meta name="color-scheme" content="dark" />
 
     <title>Avantis Studio | Sistemas Sob Medida para o Seu Negócio</title>
 
@@ -40,8 +40,6 @@
     <meta property="og:image:alt" content="Avantis Studio - Produtos Digitais" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@avantisstudio" />
-    <meta name="twitter:creator" content="@avantisstudio" />
     <meta name="twitter:title" content="Avantis Studio | Sistemas Sob Medida para o Seu Negócio" />
     <meta
       name="twitter:description"
@@ -50,12 +48,20 @@
     <meta name="twitter:image" content="https://avantis.dev/og-image.jpg" />
     <meta name="twitter:image:alt" content="Avantis Studio - Produtos Digitais" />
 
-    <meta name="msapplication-TileColor" content="#0f172a" />
+    <meta name="msapplication-TileColor" content="#070611" />
     <meta name="application-name" content="Avantis Studio" />
     <meta name="apple-mobile-web-app-title" content="Avantis Studio" />
 
+    <!-- As fontes saíram do @import do index.css: dentro do CSS elas viram um
+         segundo round-trip bloqueante em série (CSS → @import → fonte). Aqui o
+         browser começa a baixar tudo em paralelo com o CSS.
+         Playfair ganhou a variante itálica, que é o destaque da marca. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+    />
 
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -71,16 +77,11 @@
         "name": "Avantis Studio",
         "url": "https://avantis.dev/",
         "logo": "https://avantis.dev/logo-simple.png",
-        "description": "Estúdio especializado em desenvolvimento de sistemas sob medida e automação de processos para comércios locais.",
+        "description": "Estúdio de desenvolvimento de sistemas sob medida e automação de processos para pequenas e médias empresas.",
         "sameAs": [
-          "https://www.linkedin.com/company/avantis-studio"
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "Business",
-          "email": "marciliortizz@gmail.com",
-          "availableLanguage": ["Portuguese", "English"]
-        }
+          "https://www.linkedin.com/company/avantis-studio",
+          "https://instagram.com/avantis.dev"
+        ]
       }
     </script>
   </head>

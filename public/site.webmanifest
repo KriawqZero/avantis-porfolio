@@ -1,17 +1,13 @@
 {
   "name": "Avantis Studio",
-  "short_name": "Avantis Studio",
-  "description": "Avantis Studio - Software Sob Medida e Desenvolvimento Web",
+  "short_name": "Avantis",
+  "description": "Sistemas sob medida e automação de processos para pequenas e médias empresas.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#111827",
-  "theme_color": "#6366f1",
+  "background_color": "#070611",
+  "theme_color": "#070611",
   "orientation": "portrait-primary",
-  "categories": [
-    "portfolio",
-    "developer",
-    "technology"
-  ],
+  "categories": ["business", "productivity"],
   "lang": "pt-BR",
   "scope": "/",
   "icons": [
@@ -19,13 +15,13 @@
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/apple-touch-icon.png",
