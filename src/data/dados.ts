@@ -13,6 +13,12 @@
  * abre distância entre o que o site afirma e o que ele mostra, que é exatamente
  * o problema que esta seção existe para resolver.
  *
+ * "Numa conversa" é literal, e vale a leitura estrita (30/07/2026): o número
+ * precisa ser sustentável quando alguém pergunta, não precisa ser inteiramente
+ * clicável. Projeto entregue e em uso diário conta mesmo sem vitrine pública —
+ * foi por confundir as duas coisas que a contagem de projetos ficou em 4 por
+ * um tempo. Quem for revisar para baixo, leia o campo `origem` antes.
+ *
  * Fonte: portfolio-react/src/data/content.ts (trajectory, about, freelance).
  */
 
@@ -30,10 +36,17 @@ export const DADOS: Dado[] = [
     origem: 'Primeiros trabalhos com registro: worker de rede de lojas e SISCO, ambos 2025.',
   },
   {
-    valor: '4',
-    rotulo: 'Sistemas em produção com uso diário',
+    valor: '+10',
+    rotulo: 'Projetos entregues e em uso diário',
     origem:
-      'Catálogo imobiliário, Milion Style e VamoAgendar (os três verificados no ar em 29/07/2026) e SISCO, confirmado pelo Marcilio.',
+      'Contagem do Marcilio em 30/07/2026, alinhada com a bio do Instagram. ' +
+      'Era 4 e subiu porque a conta anterior só considerava trabalho com vitrine ' +
+      'pública. Entram aqui: os três com case aberto (catálogo imobiliário, Milion ' +
+      'Style e VamoAgendar, verificados no ar em 29/07/2026), o SISCO, o KyteApp ' +
+      '(worker, sem interface) e o sistema de reajuste de valores em ' +
+      'projeto_reajuste_valor_fernando — em uso diário há mais de um ano numa ' +
+      'empresa de assistência técnica em SP. ATENÇÃO: o nome desse cliente NÃO está ' +
+      'autorizado para uso público — não citar em site, bio, post ou legenda.',
   },
   {
     valor: '200+',
