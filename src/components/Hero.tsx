@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import { CASES } from '../data/cases'
+import Revelar from './Revelar'
+import Ornamento from './Ornamento'
 
 /**
  * Hero.
@@ -11,19 +13,20 @@ import { CASES } from '../data/cases'
  *   coisa, e ali não enquadrava nada.
  * - Destaque em itálico roxo na manchete: é a assinatura que a Avantis usa em
  *   todo carrossel (avantis-render/template.ts) e que o site ignorava.
- * - Dois caminhos, não um. Antes existia só o compromisso alto (falar com
- *   alguém). Agora existe também o baixo: ver um sistema funcionando.
- * - Faixa de prova logo abaixo da manchete. Não são números — são dois links que
- *   o visitante pode abrir. Prova verificável em vez de acreditável.
+ * - Dois níveis de compromisso: fazer o diagnóstico, ou abrir um sistema e ver
+ *   funcionando. Antes existia só o alto.
+ * - Faixa de prova logo abaixo da manchete, com os três sistemas que estão no
+ *   ar. O visitante clica e verifica, em vez de acreditar num número.
  *
  * A marca aparece na navbar desde o primeiro paint, então aqui o rótulo é
  * posicionamento, não assinatura.
  */
 export default function Hero() {
   return (
-    <section className="relative flex min-h-svh flex-col justify-center overflow-hidden pt-32 pb-16">
-      {/* Fundo. Um glow largo e frio no topo, um quente na base — os dois tons
-          do gradiente do próprio logo. Nada de textura pontilhada genérica. */}
+    <section className="relative isolate flex min-h-svh flex-col justify-center overflow-hidden pt-32 pb-16">
+      {/* Fundo: o ornamento gerado pelo mesmo código que produz a arte dos
+          carrosséis, mais dois glows nos tons das pontas do gradiente do logo. */}
+      <Ornamento seed="hero" posicao="centro" opacidade={1.6} />
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div
           className="absolute -top-1/4 left-0 h-[80vh] w-[80vw]"
@@ -36,24 +39,24 @@ export default function Hero() {
       </div>
 
       <div className="container-avantis">
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="tec text-acento-claro mb-8 border-l border-acento/50 pl-4"
-        >
-          Sistemas sob medida e automação
-        </motion.p>
+        <Revelar aoCarregar atraso={0.1} className="mb-8">
+          <p className="tec text-acento-claro border-l border-acento/50 pl-4">
+            Sistemas sob medida e automação
+          </p>
+        </Revelar>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.06 }}
-          className="text-[length:var(--t-h1)] font-bold leading-[1.04] tracking-tight medida-curta mb-8"
-        >
-          Software feito para a operação que o seu negócio{' '}
-          <span className="realce">já tem</span>.
-        </motion.h1>
+        {/* Duas linhas reveladas em sequência: a segunda entra depois, e é onde
+            mora o destaque em itálico. */}
+        <h1 className="text-[length:var(--t-h1)] font-bold leading-[1.04] tracking-tight medida-curta mb-8">
+          <Revelar aoCarregar atraso={0.22}>
+            <span className="block">Software feito para a operação</span>
+          </Revelar>
+          <Revelar aoCarregar atraso={0.34}>
+            <span className="block">
+              que o seu negócio <span className="realce">já tem</span>.
+            </span>
+          </Revelar>
+        </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 14 }}

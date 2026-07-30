@@ -1,99 +1,128 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
+import { useRef } from 'react'
 import { CASES } from '../data/cases'
+import type { Case } from '../data/cases'
 import { DADOS, SETORES } from '../data/dados'
+import Revelar from './Revelar'
+import Ornamento from './Ornamento'
+
+/**
+ * Um case. O par antes/depois é conduzido pelo scroll: conforme o bloco atravessa
+ * a tela, o "antes" perde peso e o "depois" assume.
+ *
+ * Sem pinar a viewport. O portfólio pessoal trava a tela e troca o texto — fica
+ * mais cinematográfico e custa 250vh por case, o que aqui somaria três telas e
+ * meia só de rolagem vazia. A leitura conduzida é a mesma; o scroll continua
+ * sendo do visitante.
+ */
+function CaseBloco({ c, indice }: { c: Case; indice: number }) {
+  const ref = useRef<HTMLElement>(null)
+  const semMovimento = useReducedMotion()
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start 0.85', 'center 0.45'],
+  })
+
+  const antesOpacidade = useTransform(scrollYProgress, [0, 0.75], [1, 0.35])
+  const depoisOpacidade = useTransform(scrollYProgress, [0.2, 0.9], [0.35, 1])
+  const depoisY = useTransform(scrollYProgress, [0.2, 0.9], [10, 0])
+
+  const antes = semMovimento ? {} : { opacity: antesOpacidade }
+  const depois = semMovimento ? {} : { opacity: depoisOpacidade, y: depoisY }
+
+  return (
+    <motion.article
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.5 }}
+      className="grid gap-10 lg:grid-cols-12 lg:gap-14 items-center"
+    >
+      {/* A imagem troca de lado a cada case. */}
+      <div className={`lg:col-span-7 ${indice % 2 === 1 ? 'lg:order-last' : ''}`}>
+        <a
+          href={c.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block group relative overflow-hidden border border-linha hover:border-acento/40 transition-colors"
+        >
+          <img
+            src={c.imagem}
+            alt={c.alt}
+            width={1200}
+            height={675}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-auto"
+          />
+          <span className="tec absolute bottom-0 right-0 bg-fundo/90 px-4 py-3 text-texto group-hover:text-acento-claro transition-colors">
+            Abrir ↗
+          </span>
+        </a>
+      </div>
+
+      <div className="lg:col-span-5">
+        <p className="tec text-texto-ter mb-4">
+          {c.tipo} · {c.ano}
+        </p>
+        <h3 className="text-[length:var(--t-h3)] leading-tight mb-8">{c.nome}</h3>
+
+        <div className="space-y-6 border-l border-linha pl-6">
+          <motion.div style={antes}>
+            <p className="tec text-texto-ter mb-2">Antes</p>
+            <p className="text-[length:var(--t-corpo)] leading-relaxed text-texto-sec medida">
+              {c.antes}
+            </p>
+          </motion.div>
+          <motion.div style={depois}>
+            <p className="tec text-acento-claro mb-2">Depois</p>
+            <p className="text-[length:var(--t-corpo)] leading-relaxed text-texto medida">
+              {c.depois}
+            </p>
+          </motion.div>
+        </div>
+
+        <p className="tec text-texto-ter mt-8 !tracking-[0.1em] normal-case">
+          {c.stack}
+        </p>
+      </div>
+    </motion.article>
+  )
+}
 
 /**
  * A seção que faltava.
  *
- * O site inteiro afirmava capacidade e não mostrava nada. Aqui a afirmação vira
- * link: os dois sistemas abrem no navegador do visitante. É prova verificável em
- * vez de acreditável — o que importa ainda mais porque não há depoimento.
+ * O site afirmava capacidade sem mostrar nada. Aqui a afirmação vira link: os
+ * três sistemas abrem no navegador do visitante, que verifica em vez de
+ * acreditar — o que pesa mais ainda porque não há depoimento disponível.
  *
- * O arranjo alterna lado a cada case. Não é enfeite: repetir a mesma planta baixa
- * é exatamente o defeito que o resto do site tinha.
+ * O arranjo alterna de lado a cada case, pela mesma razão que o ornamento muda
+ * de seção: planta baixa repetida é o defeito que o resto do site tinha.
  */
 export default function Prova() {
   return (
-    <section id="cases" className="relative py-[var(--espaco-secao-g)]">
+    <section id="cases" className="relative isolate py-[var(--espaco-secao-g)]">
+      <Ornamento seed="cases-no-ar" posicao="topo" opacidade={1.4} />
+
       <div className="container-avantis">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.5 }}
-          className="mb-16 sm:mb-24"
-        >
-          <p className="tec text-acento-claro mb-5">O que já está no ar</p>
+        <div className="mb-16 sm:mb-24">
+          <Revelar>
+            <p className="tec text-acento-claro mb-5">O que já está no ar</p>
+          </Revelar>
           <h2 className="text-[length:var(--t-h2)] leading-[1.08] medida-curta">
-            Dá para <span className="realce">abrir e usar</span> agora.
+            <Revelar atraso={0.08}>
+              <span className="block">
+                Dá para <span className="realce">abrir e usar</span> agora.
+              </span>
+            </Revelar>
           </h2>
-        </motion.div>
+        </div>
 
         <div className="space-y-24 sm:space-y-32">
           {CASES.map((c, i) => (
-            <motion.article
-              key={c.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.5 }}
-              className="grid gap-10 lg:grid-cols-12 lg:gap-14 items-center"
-            >
-              {/* A imagem troca de lado a cada case. */}
-              <div
-                className={`lg:col-span-7 ${i % 2 === 1 ? 'lg:order-last' : ''}`}
-              >
-                <a
-                  href={c.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block group relative overflow-hidden border border-linha hover:border-acento/40 transition-colors"
-                >
-                  <img
-                    src={c.imagem}
-                    alt={c.alt}
-                    width={1200}
-                    height={675}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-auto"
-                  />
-                  <span className="tec absolute bottom-0 right-0 bg-fundo/90 px-4 py-3 text-texto group-hover:text-acento-claro transition-colors">
-                    Abrir ↗
-                  </span>
-                </a>
-              </div>
-
-              <div className="lg:col-span-5">
-                <p className="tec text-texto-ter mb-4">
-                  {c.tipo} · {c.ano}
-                </p>
-                <h3 className="text-[length:var(--t-h3)] leading-tight mb-8">
-                  {c.nome}
-                </h3>
-
-                {/* O par antes/depois — o mesmo mecanismo que a marca já usa
-                    no carrossel para quebrar o scroll, aqui em texto. */}
-                <div className="space-y-6 border-l border-linha pl-6">
-                  <div>
-                    <p className="tec text-texto-ter mb-2">Antes</p>
-                    <p className="text-[length:var(--t-corpo)] leading-relaxed text-texto-sec medida">
-                      {c.antes}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="tec text-acento-claro mb-2">Depois</p>
-                    <p className="text-[length:var(--t-corpo)] leading-relaxed text-texto medida">
-                      {c.depois}
-                    </p>
-                  </div>
-                </div>
-
-                <p className="tec text-texto-ter mt-8 !tracking-[0.1em] normal-case">
-                  {c.stack}
-                </p>
-              </div>
-            </motion.article>
+            <CaseBloco key={c.id} c={c} indice={i} />
           ))}
         </div>
 

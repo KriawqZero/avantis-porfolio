@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import Revelar from './Revelar'
+import Ornamento from './Ornamento'
 
 /**
  * A virada.
@@ -20,22 +22,31 @@ export default function Problem() {
   ]
 
   return (
-    <section className="superficie-clara py-[var(--espaco-secao)]">
+    <section className="superficie-clara relative isolate py-[var(--espaco-secao)]">
+      {/* Na superfície clara o ornamento usa o acento escuro da mesma família,
+          senão o traço claro desaparece. */}
+      <Ornamento seed="o-problema" brilho="109, 40, 217" posicao="base" opacidade={1.2} />
+
       <div className="container-avantis">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <h2 className="text-[length:var(--t-h2)] leading-[1.08] medida-curta mb-6">
+          <Revelar>
+            <span className="block">O papel e a planilha trouxeram</span>
+          </Revelar>
+          <Revelar atraso={0.1}>
+            <span className="block">
+              sua empresa <span className="realce">até aqui</span>.
+            </span>
+          </Revelar>
+        </h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="text-[length:var(--t-corpo-g)] leading-relaxed text-claro-texto-sec medida mb-14 sm:mb-20"
         >
-          <h2 className="text-[length:var(--t-h2)] leading-[1.08] medida-curta mb-6">
-            O papel e a planilha trouxeram sua empresa{' '}
-            <span className="realce">até aqui</span>.
-          </h2>
-          <p className="text-[length:var(--t-corpo-g)] leading-relaxed text-claro-texto-sec medida mb-14 sm:mb-20">
-            Mas são eles que impedem você de crescer amanhã.
-          </p>
-        </motion.div>
+          Mas são eles que impedem você de crescer amanhã.
+        </motion.p>
 
         <ul className="grid gap-x-12 gap-y-0 sm:grid-cols-2 border-t border-linha-clara">
           {sintomas.map((s, i) => (
@@ -64,7 +75,9 @@ export default function Problem() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="tec text-acento-escuro mt-12"
         >
-          Se você se identificou, o problema não é falta de esforço — é falta de sistema.
+          {/* Copy original do Marcilio. A minha versão ("o problema não é falta
+              de esforço — é falta de sistema") era antítese pura. */}
+          Se você se identificou, é hora de profissionalizar a operação.
         </motion.p>
       </div>
     </section>

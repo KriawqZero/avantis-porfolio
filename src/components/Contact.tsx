@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import { EMAIL, linkWhatsApp } from '../data/contato'
+import Revelar from './Revelar'
+import Ornamento from './Ornamento'
 
 /**
  * Fechamento.
@@ -23,7 +25,9 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contato" className="relative py-[var(--espaco-secao-g)]">
+    <section id="contato" className="relative isolate py-[var(--espaco-secao-g)]">
+      <Ornamento seed="proximo-passo" posicao="centro" opacidade={1.2} />
+
       <div className="container-avantis">
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
           <motion.div
@@ -33,9 +37,18 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-7"
           >
-            <p className="tec text-acento-claro mb-5">Próximo passo</p>
+            <Revelar>
+              <p className="tec text-acento-claro mb-5">Próximo passo</p>
+            </Revelar>
             <h2 className="text-[length:var(--t-h1)] leading-[1.04] medida-curta mb-8">
-              Seu negócio não precisa <span className="realce">se adaptar</span> ao software.
+              <Revelar atraso={0.08}>
+                <span className="block">Seu negócio não precisa</span>
+              </Revelar>
+              <Revelar atraso={0.18}>
+                <span className="block">
+                  <span className="realce">se adaptar</span> ao software.
+                </span>
+              </Revelar>
             </h2>
             <p className="text-[length:var(--t-corpo-g)] leading-relaxed text-texto-sec medida mb-12">
               Mande uma mensagem contando o que atrapalha o dia a dia. A conversa

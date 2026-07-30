@@ -749,3 +749,77 @@ caras e vale corrigir junto.
 - `focus:outline-none` sem substituto no wizard e no FAQ.
 - FAQ sem `aria-expanded`; `max-h-96` pode clipar resposta longa.
 - Nenhum tratamento de `prefers-reduced-motion`.
+
+---
+
+## 16. Interatividade e autoralidade (29/07/2026)
+
+Rodada pedida pelo Marcilio depois de ver o redesign no ar: faltava autenticidade, faltava
+autoridade no sentido de ser autoral, e faltava a interatividade que ele tratou como centro do
+portfólio pessoal.
+
+### O elemento autoral: o gerador da marca no browser
+
+`src/lib/aleatorio.ts` e `src/lib/ornamentos.ts` são cópias fiéis do `avantis-render` — o mesmo
+código que produz a arte dos carrosséis do Instagram. Cada seção passa o próprio nome como seed
+(`hero`, `cases-no-ar`, `o-problema`…), e o sorteio determinístico devolve uma das seis famílias
+de textura com geometria própria.
+
+Isso resolve autoralidade e variação ao mesmo tempo: a página é texturizada pelo sistema visual
+que a marca já usa em outro canal, cada seção tem um desenho diferente, e o desenho de cada uma
+é estável entre visitas porque nada usa `Math.random()`. Um screenshot tirado hoje continua
+válido amanhã.
+
+A opção de portar o gerador **com um controle de seed visível** — deixar o visitante refazer a
+arte ao vivo — foi levantada e reservada para o portfólio pessoal, com a narrativa que a
+acompanha ("eu construo minhas próprias ferramentas"). No site institucional o interlocutor é um
+dono de PME, para quem a sofisticação técnica é ruído; no portfólio o interlocutor é par técnico,
+e é exatamente a prova que ele procura.
+
+**Duas armadilhas que apareceram na implementação**, ambas registradas porque custaram tempo:
+
+1. O ornamento ficou invisível na primeira tentativa. Eu multiplicava a opacidade do gerador
+   (0,55–0,95) por um fator próprio de 0,4–0,7 sobre primitivas cujo alfa já era 0,14–0,22 — o
+   resultado ficava em torno de 0,08 sobre um fundo quase preto. O render do carrossel desenha
+   em 1080×1350 com traço de 1–1,6px; aqui o mesmo desenho é esticado para a viewport com
+   `slice`, então o traço afina proporcionalmente. Corrigido com multiplicador por seção e
+   `vectorEffect="non-scaling-stroke"`.
+2. Mesmo com a opacidade certa, continuava invisível: `position: relative` sem `z-index` **não**
+   cria contexto de empilhamento, então o `-z-10` do ornamento escapava da seção e ia para trás
+   do `bg-fundo` do container raiz. Os glows do hero estavam sumindo pelo mesmo motivo desde a
+   sessão anterior, sem ninguém notar. Resolvido com `isolate` em cada seção.
+
+### Movimento
+
+Lenis para o scroll suave (~3 kB) e revelação por máscara com o framer-motion que já existia.
+GSAP ficou de fora deliberadamente: são ~70 kB e o LCP é critério de aceite, e o ScrollTrigger só
+seria necessário para pinar viewport — que era o caminho mais cinematográfico e custaria 250vh
+por case, três vezes nesta página.
+
+Diferença em relação ao hook do portfólio pessoal, que serviu de referência: aqui
+`prefers-reduced-motion` desliga o Lenis inteiro antes de instanciá-lo. Scroll sequestrado é
+justamente o que mais incomoda quem tem sensibilidade vestibular.
+
+O par antes/depois dos cases é conduzido pelo scroll com `useScroll`/`useTransform`: conforme o
+bloco atravessa a tela, o "antes" perde peso e o "depois" assume. Sem pinar.
+
+### Copy: o vício que eu introduzi
+
+O Marcilio reprovou "Avantis é a marca. O trabalho é meu." com o diagnóstico de que soava como
+texto de IA. Ele estava certo, e o problema era estrutural: **construção de antítese** — afirmar
+negando o oposto. Uma auditoria encontrou seis ocorrências minhas espalhadas pelo site.
+
+Três delas eram reescritas que pioraram texto que já era dele, e foram restauradas ao original
+(passos 02, 03 e 04 do processo, e o fechamento da seção do problema). Duas eram texto novo meu
+e foram reescritas de forma direta (bloco de contratação). A do FAQ sobre preço permanece porque
+ele a escolheu explicitamente comparando as versões.
+
+O `Quem.tsx` foi reescrito por inteiro, copy e estrutura: em vez de definir o que a Avantis é, a
+seção lista o que muda na prática de quem contrata, com o custo dito na mesma altura do benefício
+("um estúdio pequeno atende menos gente ao mesmo tempo"). O nome perdeu o realce itálico —
+italicizar um sobrenome lê como erro de digitação, não como acento.
+
+### Custo
+
+JS foi de 111,93 kB para 122,89 kB gzip, dentro do critério de 180 kB. Altura em desktop: 9.915px
+distribuídos em nada acima de 2,5 telas por seção.

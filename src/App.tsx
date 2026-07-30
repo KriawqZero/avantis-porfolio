@@ -1,3 +1,4 @@
+import { useScrollSuave } from './hooks/useScrollSuave'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Prova from './components/Prova'
@@ -13,12 +14,13 @@ import Footer from './components/Footer'
 /**
  * Ordem das seções.
  *
- * A prova subiu para a posição 2. Antes vinham quatro seções de argumento
- * (problema, método, soluções, diagnóstico) antes de qualquer evidência — e
- * quem chega aqui já vive o problema, não precisa de quatro telas descrevendo
- * ele. Precisa ver que alguém resolveu isso para outra pessoa.
+ * A prova está na posição 2, antes de qualquer argumento. Antes vinham quatro
+ * seções descrevendo o problema, e quem chega aqui já vive o problema — precisa
+ * ver que alguém resolveu isso para outra pessoa.
  */
 export default function App() {
+  useScrollSuave()
+
   return (
     <div className="relative min-h-screen w-full bg-fundo text-texto-sec flex flex-col font-corpo">
       <Navbar />

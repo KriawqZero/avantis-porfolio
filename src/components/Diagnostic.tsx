@@ -64,7 +64,7 @@ export default function Diagnostic() {
   }
 
   return (
-    <section id="diagnostico" className="relative py-[var(--espaco-secao-g)]">
+    <section id="diagnostico" className="relative isolate py-[var(--espaco-secao-g)]">
       <div className="container-avantis">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-20 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-28">

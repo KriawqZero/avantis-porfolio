@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import Revelar from './Revelar'
+import Ornamento from './Ornamento'
 
 /**
  * Arranjo de linhas largas numeradas — escolhido pelo Marcilio em 29/07/2026.
@@ -37,27 +39,36 @@ export default function Solutions() {
   ]
 
   return (
-    <section id="solucoes" className="relative py-[var(--espaco-secao-g)]">
+    <section id="solucoes" className="relative isolate py-[var(--espaco-secao-g)]">
+      <Ornamento seed="o-que-construimos" posicao="centro" opacidade={1.4} />
+
       <div className="container-avantis">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.5 }}
-          className="mb-16 sm:mb-20 grid gap-8 lg:grid-cols-12"
-        >
+        <div className="mb-16 sm:mb-20 grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-6">
-            <p className="tec text-acento-claro mb-5">O que a gente constrói</p>
+            <Revelar>
+              <p className="tec text-acento-claro mb-5">O que a gente constrói</p>
+            </Revelar>
             <h2 className="text-[length:var(--t-h2)] leading-[1.08]">
-              Onde a ferramenta pronta <span className="realce">para de servir</span>.
+              <Revelar atraso={0.08}>
+                <span className="block">Onde a ferramenta pronta</span>
+              </Revelar>
+              <Revelar atraso={0.18}>
+                <span className="block realce">para de servir.</span>
+              </Revelar>
             </h2>
           </div>
-          <p className="lg:col-span-5 lg:col-start-8 text-[length:var(--t-corpo)] leading-relaxed text-texto-sec self-end">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="lg:col-span-5 lg:col-start-8 text-[length:var(--t-corpo)] leading-relaxed text-texto-sec self-end"
+          >
             Ferramenta pronta serve bem em muita coisa. O trabalho aqui começa onde
             ela não serve: a parte do seu negócio que continua no caderno, na
             planilha ou na cabeça de alguém.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         <div>
           {itens.map((item, i) => (
